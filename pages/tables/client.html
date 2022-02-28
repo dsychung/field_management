@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Simple Tables</title>
+  <title>Twinoz Pty Ltd | Client</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+   <!-- SweetAlert pop up msg -->
+   <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toast pop up msg -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -428,13 +432,13 @@
               <li class="nav-item">
                 <a href="../tables/simple.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>Subcontractor</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../tables/data.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
+                  <p>Client</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -834,12 +838,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Simple Tables</h1>
+            <h1 class="float-left">Clients</h1>
+            <a href="./client_add.html" role="button" class="btn btn-default btn-sm ml-2 mt-1">Add New</a>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Simple Tables</li>
+              <li class="breadcrumb-item active">Clients</li>
             </ol>
           </div>
         </div>
@@ -854,60 +859,93 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title"></h3>
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
+                  <button type="button" class="btn btn-tool" data-card-widget="download">
+                    Download <i class="fa fa-download"></i> 
+                  </button>
                 </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap table-striped">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Address</th>
+                      <th>Contact no.</th>
+                      <th>Contact person</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>AGL</td>
+                      <td>0123456080</td>
+                      <td>agl@gmail.com</td>
+                      <td>123 abc str.<br/>445 abc str.<br/>666 abc str.</td>
+                      <td>04938273838</td>
+                      <td>Jason Bourne</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="client_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="client_edit.html" class="btn btn-default">Edit</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
                     </tr>
                     <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>183</td>
+                      <td>AGL</td>
+                      <td>0123456080</td>
+                      <td>agl@gmail.com</td>
+                      <td>123 abc str.</td>
+                      <td>04938273838</td>
+                      <td>Jason Bourne</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="client_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="client_edit.html" class="btn btn-default">Edit</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
                     </tr>
                     <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>183</td>
+                      <td>AGL</td>
+                      <td>0123456080</td>
+                      <td>agl@gmail.com</td>
+                      <td>123 abc str.</td>
+                      <td>04938273838</td>
+                      <td>Jason Bourne</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="client_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="client_edit.html" class="btn btn-default">Edit</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
                     </tr>
                     <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>183</td>
+                      <td>AGL</td>
+                      <td>0123456080</td>
+                      <td>agl@gmail.com</td>
+                      <td>123 abc str.</td>
+                      <td>04938273838</td>
+                      <td>Jason Bourne</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="client_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="client_edit.html" class="btn btn-default">Edit</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -938,13 +976,59 @@
 </div>
 <!-- ./wrapper -->
 
+<div class="modal fade" id="model-delete-confirm">
+  <div class="modal-dialog modal-sm">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h4 class="modal-title">Delete Client</h4>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <p>Are you sure? <br/>Delete Peter Doe?</p>
+  </div>
+  <div class="modal-footer justify-content-between">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+  <button type="button" class="btn btn-danger">Delete</button>
+  </div>
+  </div>
+  
+  </div>
+  
+  </div>
+
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<!-- Sweet Alert up msg -->
+<script type="text/javascript" src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toast pop up msg -->
+<script type="text/javascript" src="../../plugins/toastr/toastr.min.js"></script>
+<!-- Main js 
+<script src="../../dist/js/main.js"></script>-->
+
+<script>
+  $(function(){
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    /*
+    $('.swalDefaultSuccess').click(function() {
+        Toast.fire({
+          icon: 'success',
+          title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        })
+    });*/
+})
+</script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<!--<script src="../../dist/js/demo.js"></script>-->
 </body>
 </html>
