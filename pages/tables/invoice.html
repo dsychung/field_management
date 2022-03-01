@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Twinoz Pty Ltd | Subcontractor</title>
+  <title>Twinoz Pty Ltd | Invoice</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -174,10 +174,10 @@
                with font-awesome or any other icon font library -->
 
           <li class="nav-item">
-            <a href="subcontractor.html" class="nav-link active">
+            <a href="subcontractor.html" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                Subontractors
+                Subcontractors
               </p>
             </a>
           </li>
@@ -186,6 +186,14 @@
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Clients
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="invoice.html" class="nav-link active">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Invoices
               </p>
             </a>
           </li>
@@ -203,13 +211,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="float-left">Subcontractor - John Doe</h1>         
+            <h1 class="float-left">Invoices</h1>
+            <a href="./client_add.html" role="button" class="btn btn-default btn-sm ml-2 mt-1">Add New</a>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="subcontractor.html">Subcontractor</a></li>
-              <li class="breadcrumb-item active">Detail</li>
+              <li class="breadcrumb-item active">Invoices</li>
             </ol>
           </div>
         </div>
@@ -221,160 +229,80 @@
       <div class="container-fluid">
         <!-- /.row -->
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">
-                  General Information
-                </h3>
+                <h3 class="card-title"></h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="download">
+                    Download <i class="fa fa-download"></i> 
+                  </button>
+                </div>
               </div>
-              
-              <div class="card-body">
-                <dl class="row">
-                  <dt class="col-sm-4">ID</dt>
-                  <dd class="col-sm-8">183</dd>
-                  <dt class="col-sm-4">Name</dt>
-                  <dd class="col-sm-8">John Doe</dd>
-                  <dt class="col-sm-4">Email</dt>
-                  <dd class="col-sm-8">john.doe@gmail.com</dd>
-                  <dt class="col-sm-4">Phone</dt>
-                  <dd class="col-sm-8">091234512</dd>
-                  <dt class="col-sm-4">Address</dt>
-                  <dd class="col-sm-8">No. 123 abc str. AUS</dd>
-                  <dt class="col-sm-4">Hourly Rate</dt>
-                  <dd class="col-sm-8">$20</dd>
-                  <dt class="col-sm-4">Payment This Week</dt>
-                  <dd class="col-sm-8">$1000</dd>      
-                </dl>
-              </div>            
-            </div>            
-          </div>
-
-          <div class="col-md-6">
-            <div class="card card-default">
-              <div class="card-header">
-               <h3 class="card-title">Notes</small></h3>
-              </div>              
-              
-              <form id="quickForm" novalidate="novalidate">
-                <div class="card-body">
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                  </p>
-                  <textarea class="form-control" rows="3" placeholder=""></textarea>
-                </div>
-                
-                <div class="card-footer">
-                <button type="submit" class="btn btn-default">Replace Note</button>
-                </div>
-              </form>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Invoice No.</th>
+                      <th>Client</th>
+                      <th>Location</th>
+                      <th>Created Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>183</td>
+                      <td>10293848</td>
+                      <td>AGL</td>
+                      <td>no123 str.</td>
+                      <td>2022/02/22</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="invoice_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="#" class="btn btn-default">Download PDF</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>183</td>
+                      <td>10293848</td>
+                      <td>AGL</td>
+                      <td>no123 str.</td>
+                      <td>2022/02/22</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="invoice_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="#" class="btn btn-default">Download PDF</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>183</td>
+                      <td>10293848</td>
+                      <td>AGL</td>
+                      <td>no123 str.</td>
+                      <td>2022/02/22</td>
+                      <td>
+                          <div class="btn-group">
+                            <a role="button" href="invoice_detail.html?id=183" class="btn btn-default">View</a>
+                            <a role="button" href="#" class="btn btn-default">Download PDF</a>
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                          </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
           </div>
-
         </div>
-        <!-- /.row -->
-        <div class="row">
-          <div class="col-12">
-          <div class="card">
-
-          <div class="card-header">
-            <h3 class="card-title"></h3>
-            <div class="card-tools">
-            <ul class="pagination pagination-sm float-right">
-              <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-            </ul>
-            </div>           
-          </div> 
-
-          <div class="card-body table-responsive p-0">
-           <table class="table table-hover text-nowrap">
-          <thead>
-          <tr>
-          <th>ID</th>
-          <th>Date</th>
-          <th>Task</th>
-          <th>Time</th>
-          <th>Duration</th>
-          <th>Contractors</th>
-          <th>Status</th>
-          <th>Task Total</th>
-          <th>Pay Total</th>
-          <th>Pay Individual</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-          <td>183</td>
-          <td>2022/02/21</td>
-          <td>Aboringal office @ 36 McDowall St</td>
-          <td>16:00</td>
-          <td>0.5 hr/s</td>
-          <td><a href="subcontractor_detail.html?id='183'">John Doe</a>, <a href="subcontractor_detail.html?id='123'">Amy Yeh</a></td>
-          <td><span class="badge bg-warning">PENDING PAYMENT</span></td>
-          <td>$200</td>
-          <td>$100</td>
-          <td>$50</td>
-          </tr>
-          <tr>
-            <td>183</td>
-            <td>2022/02/21</td>
-            <td>Aboringal office @ 36 McDowall St</td>
-            <td>16:00</td>
-            <td>0.5 hr/s</td>
-            <td><a href="subcontractor_detail.html?id='183'">John Doe</a>, <a href="subcontractor_detail.html?id='123'">Amy Yeh</a></td>
-            <td><span class="badge bg-warning">PENDING PAYMENT</span></td>
-            <td>$200</td>
-            <td>$100</td>
-            <td>$50</td>
-            </tr>
-            <tr>
-              <td>183</td>
-              <td>2022/02/21</td>
-              <td>Aboringal office @ 36 McDowall St</td>
-              <td>16:00</td>
-              <td>0.5 hr/s</td>
-              <td><a href="subcontractor_detail.html?id='183'">John Doe</a>, <a href="subcontractor_detail.html?id='123'">Amy Yeh</a></td>
-              <td><span class="badge bg-primary">PAID</span></td>
-              <td>$200</td>
-              <td>$100</td>
-              <td>$50</td>
-              </tr>
-              <tr>
-                <td>183</td>
-                <td>2022/02/21</td>
-                <td>Aboringal office @ 36 McDowall St</td>
-                <td>16:00</td>
-                <td>0.5 hr/s</td>
-                <td><a href="subcontractor_detail.html?id='183'">John Doe</a>, <a href="subcontractor_detail.html?id='123'">Amy Yeh</a></td>
-                <td><span class="badge bg-primary">PAID</span></td>
-                <td>$200</td>
-                <td>$100</td>
-                <td>$50</td>
-                </tr>
-                <tr>
-                  <td>183</td>
-                  <td>2022/02/21</td>
-                  <td>Aboringal office @ 36 McDowall St</td>
-                  <td>16:00</td>
-                  <td>0.5 hr/s</td>
-                  <td><a href="subcontractor_detail.html?id='183'">John Doe</a>, <a href="subcontractor_detail.html?id='123'">Amy Yeh</a></td>
-                  <td><span class="badge bg-primary">PAID</span></td>
-                  <td>$200</td>
-                  <td>$100</td>
-                  <td>$50</td>
-                  </tr>
-          </tbody>
-          </table>
-          </div>
-          
-          </div>
-          
-          </div>
-          </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
@@ -400,13 +328,13 @@
   <div class="modal-dialog modal-sm">
   <div class="modal-content">
   <div class="modal-header">
-  <h4 class="modal-title">Delete Subcontractor</h4>
+  <h4 class="modal-title">Delete Invoice</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
   <span aria-hidden="true">&times;</span>
   </button>
   </div>
   <div class="modal-body">
-  <p>Are you sure? <br/>Delete Peter Doe?</p>
+  <p>Are you sure?</p>
   </div>
   <div class="modal-footer justify-content-between">
   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
