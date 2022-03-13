@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Twinoz Pty Ltd | Client</title>
+  <title>Twinoz Pty Ltd | Subcontractor</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -11,10 +11,8 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-   <!-- SweetAlert pop up msg -->
-   <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-  <!-- Toast pop up msg -->
-  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -164,13 +162,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="float-left">Users</h1>
-            <a href="./user_add.html" role="button" class="btn btn-default btn-sm ml-2 mt-1">Add New</a>
+            <h1 class="float-left">Add User</h1>
+            
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Users</li>
+              <li class="breadcrumb-item"><a href="user.html">User</a></li>
+              <li class="breadcrumb-item active">Add</li>
             </ol>
           </div>
         </div>
@@ -180,75 +179,57 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- /.row -->
+        <!-- /.row -->        
         <div class="row">
           <div class="col-12">
+            <form id="addUserForm" action="user.html" method="post"> 
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title"></h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="download">
-                    Download <i class="fa fa-download"></i> 
-                  </button>
-                </div>
+              <div class="card-body">     
+                  <div class="form-group">
+                    <label>Username*</label>
+                    <input type="text" class="form-control" placeholder="" name="username">
+                  </div>
+                  <div class="form-group">
+                    <label>Name*</label>
+                    <input type="text" class="form-control" placeholder="" name="name">
+                  </div>
+                  <div class="form-group">
+                    <label>Password*</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="password">
+                  </div>
+                  <div class="form-group">
+                    <label>Email*</label>
+                    <input type="text" class="form-control" placeholder="" name="email">
+                  </div>
+                  <div class="form-group">
+                    <label>Role*</label>                    
+                    <div class="dropdown">
+                      <select class="selectpicker" id="roleSelectPicker" name="role">
+                        <option value=""></option>
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="subcontractor">Subcontractor</option>
+                      </select>
+                    </div>
+                  </div> 
+                  <div class="form-group d-none selectSubcontractorBlock">
+                    <label>Subcontractor*</label>
+                    <div class="dropdown">
+                      <select class="selectpicker" id="contractorSelectPicker" name="subcontractor">
+                        <option value=""></option>
+                        <option value="001">contractor1</option>
+                        <option value="002">contractor2</option>
+                        <option value="003">contractor3</option>
+                      </select>
+                    </div>
               </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap table-striped">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Username</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>JasonB</td>
-                      <td>Jason Bourne</td>
-                      <td>agl@gmail.com</td>
-                      <td>Subcontractor</td>
-                      <td>
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modelResetPassword">Reset Password</button>
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
-                          </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>183</td>
-                      <td>JasonB</td>
-                      <td>Jason Bourne</td>
-                      <td>agl@gmail.com</td>
-                      <td>Admin</td>
-                      <td>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modelResetPassword">Reset Password</button>
-                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>                     </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>183</td>
-                      <td>JasonB</td>
-                      <td>Jason Bourne</td>
-                      <td>agl@gmail.com</td>
-                      <td>Manager</td>
-                      <td>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modelResetPassword">Reset Password</button>
-                          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>              </div>
-                      </td>
-                    </tr>                    
-                  </tbody>
-                </table>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Add New</button>
+                <a role="button" href="user.html" class="btn btn-default">Cancel</a>
               </div>
-              <!-- /.card-body -->
-            </div>
+            </div>              
             <!-- /.card -->
+            </form>
           </div>
         </div>
         <!-- /.row -->
@@ -259,7 +240,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
+      <b>Version</b> 1.0.0
     </div>
     <strong>Copyright &copy; 2022 Twinoz Pty Ltd.</strong> All rights reserved.
   </footer>
@@ -288,38 +269,11 @@
   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
   <button type="button" class="btn btn-danger">Delete</button>
   </div>
-  </div>  
-  </div>  
-</div>
-
-<div class="modal fade" id="modelResetPassword">
-  <form id="resetPassword">
-  <div class="modal-dialog modal-sm">
-  <div class="modal-content">
-  <div class="modal-header">
-  <h4 class="modal-title">Reset Password</h4>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-  </button>
   </div>
-  <div class="modal-body">
-      <div class="form-group">
-        <label for="exampleInputPassword1">New Password</label>
-        <input type="password" class="form-control" id="password" placeholder="" name="password">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Confirm New Password</label>
-        <input type="password" class="form-control" id="password_again" placeholder=""  name="password_again">
-      </div>
+  
   </div>
-  <div class="modal-footer justify-content-between">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-  <button type="submit" class="btn btn-primary">Update</button>
+  
   </div>
-  </div>  
-  </div>  
-  </form>
-</div>
 
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -330,46 +284,55 @@
 <script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
-<!-- Sweet Alert up msg -->
-<script type="text/javascript" src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
-<!-- Toast pop up msg -->
-<script type="text/javascript" src="../../plugins/toastr/toastr.min.js"></script>
-<!-- Main js 
-<script src="../../dist/js/main.js"></script>-->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<!--<script src="../../dist/js/demo.js"></script>-->
 
 <script>
-  $(function(){
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-    
-
+  $(function () {
     $.validator.setDefaults({
       submitHandler: function () {
-        alert( "Password Updatad!" );
+        alert( "Form successful submitted!" );
       }
     });
-
-    $('#resetPassword').validate({
+    $('#addUserForm').validate({
       rules: {
+        email: {
+          required: true,
+          email: true,
+        },
+        username: {
+          required: true
+        },
+        name: {
+          required: true
+        },
         password: {
           required: true,
           minlength: 5
         },
-        password_again: {
-          equalTo: "#password"
+        role: {
+          required: true
+        },
+        subcontractor: {
+          required: true
         }
       },
       messages: {
-        password: {
-          required: "Please provide password",
-          minlength: "Not less than 5 characters"
+        email: {
+          required: "Please enter a email address",
+          email: "Please enter a valid email address"
         },
-        password_again: {
-          required: "Password must be the same"
+        username: {
+          required: "Please provide a username"
+        },
+        name: {
+          required: "Please provide a full name"
+        },
+        password: {
+          required: "Please provide a username",
+          minlength: "Not less than 5 characters"
         }
       },
       errorElement: 'span',
@@ -384,9 +347,22 @@
         $(element).removeClass('is-invalid');
       }
     });
-})
+
+    //role select show/hide
+    $('.dropdown-item').on('click', function () {
+      let role = $(this).text();
+      $(this).parents(".dropdown").find('.btn').html(role);
+    })
+    $('#roleSelectPicker').on('change',function(){
+      let role = $(this).val();
+      if (role == 'subcontractor'){
+        $('.selectSubcontractorBlock').removeClass('d-none');
+      }else{
+        $('.selectSubcontractorBlock').addClass('d-none');
+      }
+    })
+  });
 </script>
-<!-- AdminLTE for demo purposes -->
-<!--<script src="../../dist/js/demo.js"></script>-->
+
 </body>
 </html>
