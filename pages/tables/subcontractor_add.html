@@ -182,12 +182,9 @@
          <div class="card">
           <div class="card-body">
            <div class="form-group">
-            <label>First Name</label>
-            <input type="text" class="form-control" placeholder="" />
-           </div>
            <div class="form-group">
-            <label>Last Name*</label>
-            <input type="text" class="form-control" placeholder="" name="lastname" />
+            <label>Name*</label>
+            <input type="text" class="form-control" placeholder="" name="name" />
            </div>
            <div class="form-group">
             <label>Email*</label>
@@ -206,7 +203,44 @@
             <input type="text" class="form-control" placeholder="" />
            </div>
            <div class="form-group">
-            <label>Notes</label>
+                <label>Availability</label>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="1" />
+                        <label for="customCheckbox1" class="custom-control-label">MON</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input availability" type="checkbox" id="customCheckbox2" value="2" />
+                        <label for="customCheckbox2" class="custom-control-label">TUE</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input availability" type="checkbox" id="customCheckbox3" value="3" />
+                        <label for="customCheckbox3" class="custom-control-label">WED</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input availability" type="checkbox" id="customCheckbox4" value="4" />
+                        <label for="customCheckbox4" class="custom-control-label">THU</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input availability" type="checkbox" id="customCheckbox5" value="5" />
+                        <label for="customCheckbox5" class="custom-control-label">FRI</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input availability" type="checkbox" id="customCheckbox6" value="6" />
+                        <label for="customCheckbox6" class="custom-control-label">SAT</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input availability" type="checkbox" id="customCheckbox7" value="7" />
+                        <label for="customCheckbox7" class="custom-control-label">SUN</label>
+                </div>
+           </div>
+
+
+           <div class="form-group">
+            <label>Short Note</label>
+            <input class="form-control" type="text" placeholder="" />
+           </div>
+           <div class="form-group">
+            <label>Long Note</label>
             <textarea class="form-control" rows="3" placeholder=""></textarea>
            </div>
           </div>
@@ -287,7 +321,7 @@
        required: true,
        email: true,
       },
-      lastname: {
+      name: {
        required: true,
       },
      },
@@ -296,8 +330,8 @@
        required: "Please enter a email address",
        email: "Please enter a valid email address",
       },
-      lastname: {
-       required: "Please provide a lastname",
+      name: {
+       required: "Please provide a name",
       },
      },
      errorElement: "span",

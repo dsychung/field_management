@@ -15,7 +15,140 @@
   <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" />
   <!-- Toast pop up msg -->
   <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css" />
-  
+  <!--invoice style-->
+  <style>
+   body {
+    margin-top: 20px;
+    color: #2e323c;
+    background: #f5f6fa;
+    position: relative;
+    height: 100%;
+   }
+   .invoice-container {
+    padding: 1rem;
+   }
+   .invoice-container .invoice-header .invoice-logo {
+    margin: 0.8rem 0 0 0;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2e323c;
+   }
+   .invoice-container .invoice-header .invoice-logo img {
+    max-width: 130px;
+   }
+   .invoice-container .invoice-header address {
+    font-size: 0.8rem;
+    color: #9fa8b9;
+    margin: 0;
+   }
+   .invoice-container .invoice-details {
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+    line-height: 180%;
+    background: #f5f6fa;
+   }
+   .invoice-container .invoice-details .invoice-num {
+    text-align: right;
+    font-size: 0.8rem;
+   }
+   .invoice-container .invoice-body {
+    padding: 1rem 0 0 0;
+   }
+   .invoice-container .invoice-footer {
+    text-align: center;
+    font-size: 0.7rem;
+    margin: 5px 0 0 0;
+   }
+
+   .invoice-status {
+    text-align: center;
+    padding: 1rem;
+    background: #ffffff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+   }
+   .invoice-status h2.status {
+    margin: 0 0 0.8rem 0;
+   }
+   .invoice-status h5.status-title {
+    margin: 0 0 0.8rem 0;
+    color: #9fa8b9;
+   }
+   .invoice-status p.status-type {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    line-height: 150%;
+   }
+   .invoice-status i {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    display: inline-block;
+    padding: 1rem;
+    background: #f5f6fa;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+   }
+   .invoice-status .badge {
+    text-transform: uppercase;
+   }
+
+   @media (max-width: 767px) {
+    .invoice-container {
+     padding: 1rem;
+    }
+   }
+
+   .custom-table {
+    border: 1px solid #e0e3ec;
+   }
+   .custom-table thead {
+    background: #007ae1;
+   }
+   .custom-table thead th {
+    border: 0;
+    color: #ffffff;
+   }
+   .custom-table > tbody tr:hover {
+    background: #fafafa;
+   }
+   .custom-table > tbody tr:nth-of-type(even) {
+    background-color: #ffffff;
+   }
+   .custom-table > tbody td {
+    border: 1px solid #e6e9f0;
+   }
+
+   .card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+   }
+
+   .text-success {
+    color: #00bb42 !important;
+   }
+
+   .text-muted {
+    color: #9fa8b9 !important;
+   }
+
+   .custom-actions-btns {
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+   }
+
+   .custom-actions-btns .btn {
+    margin: 0.3rem 0 0.3rem 0.3rem;
+   }
+  </style>
  </head>
  <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -180,151 +313,141 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-      
-      <div class="invoice p-3 mb-3">
-      
+     <div class="container-fluid">
+      <!-- /.row -->
       <div class="row">
-      <div class="col-12">
-      <h4>
-      <i class="fas fa-globe"></i> AdminLTE, Inc.
-      <small class="float-right">Date: 2/10/2014</small>
-      </h4>
+       <div class="col-12">
+        <div class="row gutters">
+         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="card">
+           <div class="card-body p-0">
+            <div class="invoice-container">
+             <div class="invoice-header">
+              <!-- Row start -->
+              <div class="row gutters">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <a href="index.html" class="invoice-logo">
+                 Maxwell
+                </a>
+               </div>
+               <div class="col-lg-6 col-md-6 col-sm-6">
+                <address class="text-right">
+                 Maxwell admin Inc, 45 NorthWest Street.<br />
+                 Sunrise Blvd, San Francisco.<br />
+                 00000 00000
+                </address>
+               </div>
+              </div>
+              <!-- Row end -->
+              <!-- Row start -->
+              <div class="row gutters">
+               <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="invoice-details">
+                 <address>
+                  Alex Maxwell<br />
+                  150-600 Church Street, Florida, USA
+                 </address>
+                </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="invoice-details">
+                 <div class="invoice-num">
+                  <div>Invoice - #009</div>
+                  <div>January 10th 2020</div>
+                 </div>
+                </div>
+               </div>
+              </div>
+              <!-- Row end -->
+             </div>
+             <div class="invoice-body">
+              <!-- Row start -->
+              <div class="row gutters">
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="table-responsive">
+                 <table class="table custom-table m-0">
+                  <thead>
+                   <tr>
+                    <th>Items</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Sub Total</th>
+                   </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                    <td>
+                     Wordpress Template
+                     <p class="m-0 text-muted">
+                      Reference site about Lorem Ipsum, giving information on its origins.
+                     </p>
+                    </td>
+                    <td>#50000981</td>
+                    <td>9</td>
+                    <td>$5000.00</td>
+                   </tr>
+                   <tr>
+                    <td>
+                     Maxwell Admin Template
+                     <p class="m-0 text-muted">
+                      As well as a random Lipsum generator.
+                     </p>
+                    </td>
+                    <td>#50000126</td>
+                    <td>5</td>
+                    <td>$100.00</td>
+                   </tr>
+                   <tr>
+                    <td>
+                     Unify Admin Template
+                     <p class="m-0 text-muted">
+                      Lorem ipsum has become the industry standard.
+                     </p>
+                    </td>
+                    <td>#50000821</td>
+                    <td>6</td>
+                    <td>$49.99</td>
+                   </tr>
+                   <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="2">
+                     <p>
+                      Subtotal<br />
+                      Shipping &amp; Handling<br />
+                      Tax<br />
+                     </p>
+                     <h5 class="text-primary"><strong>Grand Total</strong></h5>
+                    </td>
+                    <td>
+                     <p>
+                      $5000.00<br />
+                      $100.00<br />
+                      $49.00<br />
+                     </p>
+                     <h5 class="text-primary"><strong>$5150.99</strong></h5>
+                    </td>
+                   </tr>
+                  </tbody>
+                 </table>
+                </div>
+               </div>
+              </div>
+              <!-- Row end -->
+             </div>
+             <div class="invoice-footer">
+              Thank you
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
       </div>
-      
-      </div>
-      
-      <div class="row invoice-info">
-      <div class="col-sm-4 invoice-col">
-      From
-      <address>
-      <strong>Admin, Inc.</strong><br>
-      795 Folsom Ave, Suite 600<br>
-      San Francisco, CA 94107<br>
-      Phone: (804) 123-5432<br>
-      Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="10797e767f50717c7d71637175757463646574797f3e737f7d">[email&#160;protected]</a>
-      </address>
-      </div>
-      
-      <div class="col-sm-4 invoice-col">
-      To
-      <address>
-      <strong>John Doe</strong><br>
-      795 Folsom Ave, Suite 600<br>
-      San Francisco, CA 94107<br>
-      Phone: (555) 539-1037<br>
-      Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6802070006460c070d280d10090518040d460b0705">[email&#160;protected]</a>
-      </address>
-      </div>
-      
-      <div class="col-sm-4 invoice-col">
-      <b>Invoice #007612</b><br>
-      <br>
-      <b>Order ID:</b> 4F3S8J<br>
-      <b>Payment Due:</b> 2/22/2014<br>
-      <b>Account:</b> 968-34567
-      </div>
-      
-      </div>
-      
-      
-      <div class="row">
-      <div class="col-12 table-responsive">
-      <table class="table table-striped">
-      <thead>
-      <tr>
-      <th>Qty</th>
-      <th>Product</th>
-      <th>Serial #</th>
-      <th>Description</th>
-      <th>Subtotal</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Call of Duty</td>
-      <td>455-981-221</td>
-      <td>El snort testosterone trophy driving gloves handsome</td>
-      <td>$64.50</td>
-      </tr>
-      <tr>
-      <td>1</td>
-      <td>Need for Speed IV</td>
-      <td>247-925-726</td>
-      <td>Wes Anderson umami biodiesel</td>
-      <td>$50.00</td>
-      </tr>
-      <tr>
-      <td>1</td>
-      <td>Monsters DVD</td>
-      <td>735-845-642</td>
-      <td>Terry Richardson helvetica tousled street art master</td>
-      <td>$10.70</td>
-      </tr>
-      <tr>
-      <td>1</td>
-      <td>Grown Ups Blue Ray</td>
-      <td>422-568-642</td>
-      <td>Tousled lomo letterpress</td>
-      <td>$25.99</td>
-      </tr>
-      </tbody>
-      </table>
-      </div>
-      
-      </div>
-      
-      <div class="row">
-      
-      <div class="col-6">
-      
-      </div>
-      
-      <div class="col-6">
-      <p class="lead">Amount Due 2/22/2014</p>
-      <div class="table-responsive">
-      <table class="table">
-      <tr>
-      <th style="width:50%">Subtotal:</th>
-      <td>$250.30</td>
-      </tr>
-      <tr>
-      <th>Tax (9.3%)</th>
-      <td>$10.34</td>
-      </tr>
-      <tr>
-      <th>Shipping:</th>
-      <td>$5.80</td>
-      </tr>
-      <tr>
-      <th>Total:</th>
-      <td>$265.24</td>
-      </tr>
-      </table>
-      </div>
-      </div>
-      
-      </div>
-      
-      
-      <div class="row no-print">
-      <div class="col-12">
-      <a href="#" rel="noopener" target="_blank" class="btn btn-default" onclick="window.print();return false;"><i class="fas fa-print"></i> Print</a>
-      <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
-      Payment
-      </button>
-      <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-      <i class="fas fa-download"></i> Generate PDF
-      </button>
-      </div>
-      </div>
-      </div>
-      
-      </div>
-      </div>
-      </div>
-      </section>
+      <!-- /.row -->
+     </div>
+     <!-- /.container-fluid -->
+    </section>
     <!-- /.content -->
    </div>
    <!-- /.content-wrapper -->

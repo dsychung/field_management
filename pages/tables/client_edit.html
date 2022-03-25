@@ -185,65 +185,21 @@
             <input type="text" class="form-control" placeholder="" disabled />
            </div>
            <div class="form-group">
-            <label>Name*</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <div class="form-group">
-            <label>Email*</label>
-            <input type="text" class="form-control" placeholder="" name="email" />
-           </div>
-           <div class="form-group">
-            <label>Contact no.</label>
-            <input type="text" class="form-control" placeholder="" />
-           </div>
-           <div class="form-group">
-            <label>Contact person</label>
-            <input type="text" class="form-control" placeholder="" />
-           </div>
-           <hr />
-           <div class="form-group">
-            <label>Location Name1*</label>
-            <input type="text" class="form-control" placeholder="" name="lname" />
-           </div>
-           <div class="form-group">
-            <label>Address1*</label>
-            <input type="text" class="form-control" placeholder="" name="laddress" />
-           </div>
-           <div class="form-group">
-            <label>Frenquency1</label>
-            <input type="text" class="form-control" placeholder="" name="lfrequency" />
-           </div>
-           <hr />
-           <div class="form-group">
-            <label>Location Name2*</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <div class="form-group">
-            <label>Address2*</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <div class="form-group">
-            <label>Frenquency2</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <hr />
-           <div class="form-group">
-            <label>Location Name3*</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <div class="form-group">
-            <label>Address3*</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <div class="form-group">
-            <label>Frenquency3</label>
-            <input type="text" class="form-control" placeholder="" name="name" />
-           </div>
-           <hr />
-           <div class="form-group">
-            <label>Notes</label>
-            <textarea class="form-control" rows="3" placeholder=""></textarea>
-           </div>
+                <label>Name*</label>
+                <input type="text" class="form-control" placeholder="" name="name" />
+               </div>
+               <div class="form-group">
+                <label>Email*</label>
+                <input type="text" class="form-control" placeholder="" name="email" />
+               </div>
+               <div class="form-group">
+                <label>Contact no.*</label>
+                <input type="text" class="form-control" placeholder="" name="contactNo" />
+               </div>
+               <div class="form-group">
+                <label>Contact person*</label>
+                <input type="text" class="form-control" placeholder=""  name="contactPerson"/>
+               </div>
           </div>
           <div class="card-footer">
            <button type="submit" class="btn btn-primary">Update</button>
@@ -320,20 +276,23 @@
     });
     $("#editClientForm").validate({
      rules: {
-      email: {
+        email: {
        required: true,
        email: true,
       },
       name: {
        required: true,
       },
-      lname: {
+      contactNo: {
        required: true,
       },
-      laddress: {
+      contactPerson: {
        required: true,
       },
-      lfrequency: {
+      addressName: {
+       required: true,
+      },
+      fullAddress: {
        required: true,
       },
      },
