@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>AdminLTE 3 | Kanban Board</title>
+        <title>Twinoz | Dashboard</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
 
@@ -14,38 +14,14 @@
         <link rel="stylesheet" href="dist/css/adminlte.min.css?v=3.2.0" />
 
         <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
-        <script nonce="f4af0906-83ff-4153-8070-57825122e8f7">
-            (function (w, d) {
-                !(function (a, e, t, r, z) {
-                    (a.zarazData = a.zarazData || {}), (a.zarazData.executed = []), (a.zarazData.tracks = []), (a.zaraz = { deferred: [] });
-                    var s = e.getElementsByTagName("title")[0];
-                    s && (a.zarazData.t = e.getElementsByTagName("title")[0].text),
-                        (a.zarazData.w = a.screen.width),
-                        (a.zarazData.h = a.screen.height),
-                        (a.zarazData.j = a.innerHeight),
-                        (a.zarazData.e = a.innerWidth),
-                        (a.zarazData.l = a.location.href),
-                        (a.zarazData.r = e.referrer),
-                        (a.zarazData.k = a.screen.colorDepth),
-                        (a.zarazData.n = e.characterSet),
-                        (a.zarazData.o = new Date().getTimezoneOffset()),
-                        (a.dataLayer = a.dataLayer || []),
-                        (a.zaraz.track = (e, t) => {
-                            for (key in (a.zarazData.tracks.push(e), t)) a.zarazData["z_" + key] = t[key];
-                        }),
-                        (a.zaraz._preSet = []),
-                        (a.zaraz.set = (e, t, r) => {
-                            (a.zarazData["z_" + e] = t), a.zaraz._preSet.push([e, t, r]);
-                        }),
-                        a.dataLayer.push({ "zaraz.start": new Date().getTime() }),
-                        a.addEventListener("DOMContentLoaded", () => {
-                            var t = e.getElementsByTagName(r)[0],
-                                z = e.createElement(r);
-                            (z.defer = !0), (z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData)))), t.parentNode.insertBefore(z, t);
-                        });
-                })(w, d, 0, "script");
-            })(window, document);
-        </script>
+
+        <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
+
+        <style>
+          .bg-light2{background-color: #e2e2e2;}
+        </style>
+
+        
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
@@ -184,34 +160,67 @@
 
             <div class="content-wrapper kanban">
                 <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h1>Dashboard</h1>
-                            </div>
-                            <div class="col-sm-6 d-none d-sm-block">
-                                <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                </ol>
-                            </div>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between bd-highlight">
+                        <div class="p-2 bd-highlight">
+                          <div class="btn-group">
+                            <button type="button" title="Previous month" aria-pressed="false" class="float-left fc-prev-button btn btn-primary"><span class="fa fa-chevron-left"></span></button>
+                            <button type="button" title="Next month" aria-pressed="false" class="fc-next-button btn btn-primary"><span class="fa fa-chevron-right"></span></button>                            
+                          </div>
+                          <button type="button" title="This month" aria-pressed="false" class="fc-today-button btn btn-primary ml-2">today</button>
                         </div>
+                        <div class="p-2 bd-highlight">
+                          <div class="btn-group">
+                            <button type="button" title="month view" aria-pressed="false" class="fc-dayGridMonth-button btn btn-primary">Tasks</button>
+                            <button type="button" title="week view" aria-pressed="false" class="float-left fc-timeGridWeek-button btn btn-primary">Clients</button>
+                            <button type="button" title="week view" aria-pressed="false" class="float-left fc-timeGridWeek-button btn btn-primary">Individual Clients</button>
+                            <button type="button" title="day view" aria-pressed="true" class="float-left fc-timeGridDay-button btn btn-primary active">Subcontractors</button>
+                            <button type="button" title="day view" aria-pressed="true" class="float-left fc-timeGridDay-button btn btn-primary">Individual Subcontractor</button>
+                          </div>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                          <!--daterangepicker-->   
+                          <div class="input-group float-right">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>                            
+                              <input type="text" class="pt-1 pb-1 pl-2" name="daterange" value="01/01/2018 - 01/15/2018" />
+                          </div>      
+                          <!--
+                          <div class="btn-group">
+                            <button type="button" title="month view" aria-pressed="false" class="fc-dayGridMonth-button btn btn-primary">month</button>
+                            <button type="button" title="week view" aria-pressed="false" class="float-left fc-timeGridWeek-button btn btn-primary">week</button>
+                            <button type="button" title="day view" aria-pressed="true" class="float-left fc-timeGridDay-button btn btn-primary active">day</button>
+                          </div>-->                 
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </section>
-                <section class="content pb-3">
+               
+                <section class="content pb-3"> 
                     <div class="container-fluid h-100">
-                        <div class="card card-row card-secondary">
+                        <div class="card card-row card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">
                                     John Doe
                                 </h3>
+                                <div class="card-tools">
+                                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                  <i class="fas fa-minus"></i>
+                                  </button>
+                                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                  <i class="fas fa-times"></i>
+                                  </button>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <div class="card card-success card-outline">
+                                <div class="card card-success card-outline bg-light2">
                                   <div class="card-header">
                                       <h5 class="card-title">
                                         <strong>AGL@Airport</strong></h5>
                                       <div class="card-tools">
-                                        <span class="right badge badge-success">done</span>
                                           <a href="#" class="btn btn-tool">
                                               <i class="fas fa-pen"></i>
                                           </a>
@@ -220,45 +229,40 @@
                                   <div class="card-body">
                                     <div class="row">
                                       <div class="col-sm-10">
-                                        <i class="fas fa-clock"></i> &nbsp;
+                                        <i class="far fa-clock"></i> &nbsp;
                                         22/03/16 14:00-16:00
-                                      </div>
-                                      <div class="col">
-                                        <span class="right badge badge-default">2hrs</span>
                                       </div>
                                     </div>  
                                     <div class="row">
                                       <div class="col">
-                                        <i class="fas fa-user"></i> &nbsp;
+                                        <i class="far fa-user"></i> &nbsp;
                                         <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
                                       </div>                                 
                                     </div>                                 
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-address-book"></i> &nbsp;
+                                        <i class="far fa-address-book"></i> &nbsp;
                                         <span>$20/$40</span>
                                       </div>
                                     </div>                             
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-flag"></i> &nbsp;
+                                        <i class="far fa-flag"></i> &nbsp;
                                         <span>No 123 Abc Str.</span>
                                       </div>
                                     </div>                                
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-sticky-note"></i> &nbsp;
+                                        <i class="far fa-sticky-note"></i> &nbsp;
                                         <span>some notesa asdfasdf asdfa...</span>
                                       </div>
-                                    </div>                                
-                                    
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="card card-danger card-outline">
                                   <div class="card-header">
                                       <h5 class="card-title"><strong>AGL@Airport</strong></h5>
                                         <div class="card-tools">
-                                        <span class="right badge badge-danger">Today</span>
                                           <a href="#" class="btn btn-tool">
                                               <i class="fas fa-pen"></i>
                                           </a>
@@ -267,38 +271,34 @@
                                   <div class="card-body">
                                     <div class="row">
                                       <div class="col-sm-10">
-                                        <i class="fas fa-clock"></i> &nbsp;
+                                        <i class="far fa-clock"></i> &nbsp;
                                         22/03/16 14:00-16:00
-                                      </div>
-                                      <div class="col">
-                                        <span class="right badge badge-default">2hrs</span>
                                       </div>
                                     </div>  
                                     <div class="row">
                                       <div class="col">
-                                        <i class="fas fa-user"></i> &nbsp;
+                                        <i class="far fa-user"></i> &nbsp;
                                         <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
                                       </div>                                 
                                     </div>                                 
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-address-book"></i> &nbsp;
+                                        <i class="far fa-address-book"></i> &nbsp;
                                         <span>$20/$40</span>
                                       </div>
                                     </div>                             
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-flag"></i> &nbsp;
+                                        <i class="far fa-flag"></i> &nbsp;
                                         <span>No 123 Abc Str.</span>
                                       </div>
                                     </div>                                
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-sticky-note"></i> &nbsp;
+                                        <i class="far fa-sticky-note"></i> &nbsp;
                                         <span>some notesa asdfasdf asdfa...</span>
                                       </div>
-                                    </div>                                
-                                    
+                                    </div>
                                   </div>
                                 </div>
                                 
@@ -306,7 +306,6 @@
                                   <div class="card-header">
                                       <h5 class="card-title"><strong>AGL@Airport</strong></h5>
                                       <div class="card-tools">
-                                        <span class="right badge badge-danger">Today</span>
                                           <a href="#" class="btn btn-tool">
                                               <i class="fas fa-pen"></i>
                                           </a>
@@ -315,7 +314,50 @@
                                   <div class="card-body">
                                     <div class="row">
                                       <div class="col-sm-10">
-                                        <i class="fas fa-clock"></i> &nbsp;
+                                        <i class="far fa-clock"></i> &nbsp;
+                                        22/03/16 14:00-16:00
+                                      </div>
+                                    </div>  
+                                    <div class="row">
+                                      <div class="col">
+                                        <i class="far fa-user"></i> &nbsp;
+                                        <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                      </div>                                 
+                                    </div>                                 
+                                    <div class="row">                                      
+                                      <div class="col">
+                                        <i class="far fa-address-book"></i> &nbsp;
+                                        <span>$20/$40</span>
+                                      </div>
+                                    </div>                             
+                                    <div class="row">                                      
+                                      <div class="col">
+                                        <i class="far fa-flag"></i> &nbsp;
+                                        <span>No 123 Abc Str.</span>
+                                      </div>
+                                    </div>                                
+                                    <div class="row">                                      
+                                      <div class="col">
+                                        <i class="far fa-sticky-note"></i> &nbsp;
+                                        <span>some notesa asdfasdf asdfa...</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card card-primary card-outline">
+                                  <div class="card-header">
+                                      <h5 class="card-title">AGL@Airport</h5>
+                                      <div class="card-tools">
+                                          <a href="#" class="btn btn-tool btn-link">#1</a>
+                                          <a href="#" class="btn btn-tool">
+                                              <i class="fas fa-pen"></i>
+                                          </a>
+                                      </div>
+                                  </div>                                  
+                                  <div class="card-body">
+                                    <div class="row">
+                                      <div class="col-sm-10">
+                                        <i class="far fa-clock"></i> &nbsp;
                                         22/03/16 14:00-16:00
                                       </div>
                                       <div class="col">
@@ -324,29 +366,28 @@
                                     </div>  
                                     <div class="row">
                                       <div class="col">
-                                        <i class="fas fa-user"></i> &nbsp;
+                                        <i class="far fa-user"></i> &nbsp;
                                         <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
                                       </div>                                 
                                     </div>                                 
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-address-book"></i> &nbsp;
+                                        <i class="far fa-address-book"></i> &nbsp;
                                         <span>$20/$40</span>
                                       </div>
                                     </div>                             
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-flag"></i> &nbsp;
+                                        <i class="far fa-flag"></i> &nbsp;
                                         <span>No 123 Abc Str.</span>
                                       </div>
                                     </div>                                
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-sticky-note"></i> &nbsp;
+                                        <i class="far fa-sticky-note"></i> &nbsp;
                                         <span>some notesa asdfasdf asdfa...</span>
                                       </div>
-                                    </div>                                
-                                    
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="card card-primary card-outline">
@@ -362,8 +403,8 @@
                                   <div class="card-body">
                                     <div class="row">
                                       <div class="col-sm-10">
-                                        <i class="fas fa-clock"></i> &nbsp;
-                                        2022/03/16 14:00-16:00
+                                        <i class="far fa-clock"></i> &nbsp;
+                                        22/03/16 14:00-16:00
                                       </div>
                                       <div class="col">
                                         <span class="right badge badge-default">2hrs</span>
@@ -371,30 +412,31 @@
                                     </div>  
                                     <div class="row">
                                       <div class="col">
-                                        <i class="fas fa-user"></i> &nbsp;
+                                        <i class="far fa-user"></i> &nbsp;
                                         <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
                                       </div>                                 
                                     </div>                                 
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-address-book"></i> &nbsp;
+                                        <i class="far fa-address-book"></i> &nbsp;
                                         <span>$20/$40</span>
                                       </div>
                                     </div>                             
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-flag"></i> &nbsp;
+                                        <i class="far fa-flag"></i> &nbsp;
                                         <span>No 123 Abc Str.</span>
                                       </div>
                                     </div>                                
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-sticky-note"></i> &nbsp;
+                                        <i class="far fa-sticky-note"></i> &nbsp;
                                         <span>some notesa asdfasdf asdfa...</span>
                                       </div>
-                                    </div> 
+                                    </div>
                                   </div>
                                 </div>
+
                                 <div class="card card-primary card-outline">
                                   <div class="card-header">
                                       <h5 class="card-title">AGL@Airport</h5>
@@ -408,8 +450,8 @@
                                   <div class="card-body">
                                     <div class="row">
                                       <div class="col-sm-10">
-                                        <i class="fas fa-clock"></i> &nbsp;
-                                        2022/03/16 14:00-16:00
+                                        <i class="far fa-clock"></i> &nbsp;
+                                        22/03/16 14:00-16:00
                                       </div>
                                       <div class="col">
                                         <span class="right badge badge-default">2hrs</span>
@@ -417,106 +459,2127 @@
                                     </div>  
                                     <div class="row">
                                       <div class="col">
-                                        <i class="fas fa-user"></i> &nbsp;
+                                        <i class="far fa-user"></i> &nbsp;
                                         <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
                                       </div>                                 
                                     </div>                                 
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-address-book"></i> &nbsp;
+                                        <i class="far fa-address-book"></i> &nbsp;
                                         <span>$20/$40</span>
                                       </div>
                                     </div>                             
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-flag"></i> &nbsp;
+                                        <i class="far fa-flag"></i> &nbsp;
                                         <span>No 123 Abc Str.</span>
                                       </div>
                                     </div>                                
                                     <div class="row">                                      
                                       <div class="col">
-                                        <i class="fas fa-sticky-note"></i> &nbsp;
+                                        <i class="far fa-sticky-note"></i> &nbsp;
                                         <span>some notesa asdfasdf asdfa...</span>
                                       </div>
-                                    </div> 
+                                    </div>
                                   </div>
                                 </div>
                                 
                             </div>
                         </div>
+                        <!-- /.card -->
                         <div class="card card-row card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    To Do
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="card card-primary card-outline">
-                                    <div class="card-header">
-                                        <h5 class="card-title">Create first milestone</h5>
-                                        <div class="card-tools">
-                                            <a href="#" class="btn btn-tool btn-link">#5</a>
-                                            <a href="#" class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </div>
+                          <div class="card-header">
+                              <h3 class="card-title">
+                                  John Doe
+                              </h3>
+                              <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                                </button>
+                              </div>
+                          </div>
+                          <div class="card-body">
+                              <div class="card card-success card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title">
+                                      <strong>AGL@Airport</strong></h5>
+                                    <div class="card-tools">
+                                      <span class="right badge badge-success">done</span>
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
                                     </div>
+                                </div>                                  
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <i class="far fa-clock"></i> &nbsp;
+                                      22/03/16 14:00-16:00
+                                    </div>
+                                    <div class="col">
+                                      <span class="right badge badge-default">2hrs</span>
+                                    </div>
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col">
+                                      <i class="far fa-user"></i> &nbsp;
+                                      <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                    </div>                                 
+                                  </div>                                 
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-address-book"></i> &nbsp;
+                                      <span>$20/$40</span>
+                                    </div>
+                                  </div>                             
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-flag"></i> &nbsp;
+                                      <span>No 123 Abc Str.</span>
+                                    </div>
+                                  </div>                                
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-sticky-note"></i> &nbsp;
+                                      <span>some notesa asdfasdf asdfa...</span>
+                                    </div>
+                                  </div>
                                 </div>
+                              </div>
+                              <div class="card card-danger card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                      <div class="card-tools">
+                                      <span class="right badge badge-danger">Today</span>
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
+                                </div>                                  
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <i class="far fa-clock"></i> &nbsp;
+                                      22/03/16 14:00-16:00
+                                    </div>
+                                    <div class="col">
+                                      <span class="right badge badge-default">2hrs</span>
+                                    </div>
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col">
+                                      <i class="far fa-user"></i> &nbsp;
+                                      <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                    </div>                                 
+                                  </div>                                 
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-address-book"></i> &nbsp;
+                                      <span>$20/$40</span>
+                                    </div>
+                                  </div>                             
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-flag"></i> &nbsp;
+                                      <span>No 123 Abc Str.</span>
+                                    </div>
+                                  </div>                                
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-sticky-note"></i> &nbsp;
+                                      <span>some notesa asdfasdf asdfa...</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div class="card card-danger card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                    <div class="card-tools">
+                                      <span class="right badge badge-danger">Today</span>
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
+                                </div>                                  
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <i class="far fa-clock"></i> &nbsp;
+                                      22/03/16 14:00-16:00
+                                    </div>
+                                    <div class="col">
+                                      <span class="right badge badge-default">2hrs</span>
+                                    </div>
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col">
+                                      <i class="far fa-user"></i> &nbsp;
+                                      <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                    </div>                                 
+                                  </div>                                 
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-address-book"></i> &nbsp;
+                                      <span>$20/$40</span>
+                                    </div>
+                                  </div>                             
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-flag"></i> &nbsp;
+                                      <span>No 123 Abc Str.</span>
+                                    </div>
+                                  </div>                                
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-sticky-note"></i> &nbsp;
+                                      <span>some notesa asdfasdf asdfa...</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title">AGL@Airport</h5>
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-tool btn-link">#1</a>
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
+                                </div>                                  
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <i class="far fa-clock"></i> &nbsp;
+                                      22/03/16 14:00-16:00
+                                    </div>
+                                    <div class="col">
+                                      <span class="right badge badge-default">2hrs</span>
+                                    </div>
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col">
+                                      <i class="far fa-user"></i> &nbsp;
+                                      <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                    </div>                                 
+                                  </div>                                 
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-address-book"></i> &nbsp;
+                                      <span>$20/$40</span>
+                                    </div>
+                                  </div>                             
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-flag"></i> &nbsp;
+                                      <span>No 123 Abc Str.</span>
+                                    </div>
+                                  </div>                                
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-sticky-note"></i> &nbsp;
+                                      <span>some notesa asdfasdf asdfa...</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title">AGL@Airport</h5>
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-tool btn-link">#1</a>
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
+                                </div>                                  
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <i class="far fa-clock"></i> &nbsp;
+                                      22/03/16 14:00-16:00
+                                    </div>
+                                    <div class="col">
+                                      <span class="right badge badge-default">2hrs</span>
+                                    </div>
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col">
+                                      <i class="far fa-user"></i> &nbsp;
+                                      <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                    </div>                                 
+                                  </div>                                 
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-address-book"></i> &nbsp;
+                                      <span>$20/$40</span>
+                                    </div>
+                                  </div>                             
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-flag"></i> &nbsp;
+                                      <span>No 123 Abc Str.</span>
+                                    </div>
+                                  </div>                                
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-sticky-note"></i> &nbsp;
+                                      <span>some notesa asdfasdf asdfa...</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title">AGL@Airport</h5>
+                                    <div class="card-tools">
+                                        <a href="#" class="btn btn-tool btn-link">#1</a>
+                                        <a href="#" class="btn btn-tool">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
+                                </div>                                  
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-sm-10">
+                                      <i class="far fa-clock"></i> &nbsp;
+                                      22/03/16 14:00-16:00
+                                    </div>
+                                    <div class="col">
+                                      <span class="right badge badge-default">2hrs</span>
+                                    </div>
+                                  </div>  
+                                  <div class="row">
+                                    <div class="col">
+                                      <i class="far fa-user"></i> &nbsp;
+                                      <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                    </div>                                 
+                                  </div>                                 
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-address-book"></i> &nbsp;
+                                      <span>$20/$40</span>
+                                    </div>
+                                  </div>                             
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-flag"></i> &nbsp;
+                                      <span>No 123 Abc Str.</span>
+                                    </div>
+                                  </div>                                
+                                  <div class="row">                                      
+                                    <div class="col">
+                                      <i class="far fa-sticky-note"></i> &nbsp;
+                                      <span>some notesa asdfasdf asdfa...</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                          </div>
+                      </div>
+                      <!-- /.card -->
+                      <div class="card card-row card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                John Doe
+                            </h3>
+                            <div class="card-tools">
+                              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                              <i class="fas fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                              <i class="fas fa-times"></i>
+                              </button>
                             </div>
                         </div>
-                        <div class="card card-row card-default">
-                            <div class="card-header bg-info">
-                                <h3 class="card-title">
-                                    In Progress
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="card card-light card-outline">
-                                    <div class="card-header">
-                                        <h5 class="card-title">Update Readme</h5>
-                                        <div class="card-tools">
-                                            <a href="#" class="btn btn-tool btn-link">#2</a>
-                                            <a href="#" class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                        </p>
-                                    </div>
+                        <div class="card-body">
+                            <div class="card card-success card-outline">
+                              <div class="card-header">
+                                  <h5 class="card-title">
+                                    <strong>AGL@Airport</strong></h5>
+                                  <div class="card-tools">
+                                    <span class="right badge badge-success">done</span>
+                                      <a href="#" class="btn btn-tool">
+                                          <i class="fas fa-pen"></i>
+                                      </a>
+                                  </div>
+                              </div>                                  
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <i class="far fa-clock"></i> &nbsp;
+                                    22/03/16 14:00-16:00
+                                  </div>
+                                  <div class="col">
+                                    <span class="right badge badge-default">2hrs</span>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col">
+                                    <i class="far fa-user"></i> &nbsp;
+                                    <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                  </div>                                 
+                                </div>                                 
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-address-book"></i> &nbsp;
+                                    <span>$20/$40</span>
+                                  </div>
+                                </div>                             
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-flag"></i> &nbsp;
+                                    <span>No 123 Abc Str.</span>
+                                  </div>
+                                </div>                                
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-sticky-note"></i> &nbsp;
+                                    <span>some notesa asdfasdf asdfa...</span>
+                                  </div>
                                 </div>
+                              </div>
                             </div>
+                            <div class="card card-danger card-outline">
+                              <div class="card-header">
+                                  <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                    <div class="card-tools">
+                                    <span class="right badge badge-danger">Today</span>
+                                      <a href="#" class="btn btn-tool">
+                                          <i class="fas fa-pen"></i>
+                                      </a>
+                                  </div>
+                              </div>                                  
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <i class="far fa-clock"></i> &nbsp;
+                                    22/03/16 14:00-16:00
+                                  </div>
+                                  <div class="col">
+                                    <span class="right badge badge-default">2hrs</span>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col">
+                                    <i class="far fa-user"></i> &nbsp;
+                                    <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                  </div>                                 
+                                </div>                                 
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-address-book"></i> &nbsp;
+                                    <span>$20/$40</span>
+                                  </div>
+                                </div>                             
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-flag"></i> &nbsp;
+                                    <span>No 123 Abc Str.</span>
+                                  </div>
+                                </div>                                
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-sticky-note"></i> &nbsp;
+                                    <span>some notesa asdfasdf asdfa...</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="card card-danger card-outline">
+                              <div class="card-header">
+                                  <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                  <div class="card-tools">
+                                    <span class="right badge badge-danger">Today</span>
+                                      <a href="#" class="btn btn-tool">
+                                          <i class="fas fa-pen"></i>
+                                      </a>
+                                  </div>
+                              </div>                                  
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <i class="far fa-clock"></i> &nbsp;
+                                    22/03/16 14:00-16:00
+                                  </div>
+                                  <div class="col">
+                                    <span class="right badge badge-default">2hrs</span>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col">
+                                    <i class="far fa-user"></i> &nbsp;
+                                    <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                  </div>                                 
+                                </div>                                 
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-address-book"></i> &nbsp;
+                                    <span>$20/$40</span>
+                                  </div>
+                                </div>                             
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-flag"></i> &nbsp;
+                                    <span>No 123 Abc Str.</span>
+                                  </div>
+                                </div>                                
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-sticky-note"></i> &nbsp;
+                                    <span>some notesa asdfasdf asdfa...</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card card-primary card-outline">
+                              <div class="card-header">
+                                  <h5 class="card-title">AGL@Airport</h5>
+                                  <div class="card-tools">
+                                      <a href="#" class="btn btn-tool btn-link">#1</a>
+                                      <a href="#" class="btn btn-tool">
+                                          <i class="fas fa-pen"></i>
+                                      </a>
+                                  </div>
+                              </div>                                  
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <i class="far fa-clock"></i> &nbsp;
+                                    22/03/16 14:00-16:00
+                                  </div>
+                                  <div class="col">
+                                    <span class="right badge badge-default">2hrs</span>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col">
+                                    <i class="far fa-user"></i> &nbsp;
+                                    <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                  </div>                                 
+                                </div>                                 
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-address-book"></i> &nbsp;
+                                    <span>$20/$40</span>
+                                  </div>
+                                </div>                             
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-flag"></i> &nbsp;
+                                    <span>No 123 Abc Str.</span>
+                                  </div>
+                                </div>                                
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-sticky-note"></i> &nbsp;
+                                    <span>some notesa asdfasdf asdfa...</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card card-primary card-outline">
+                              <div class="card-header">
+                                  <h5 class="card-title">AGL@Airport</h5>
+                                  <div class="card-tools">
+                                      <a href="#" class="btn btn-tool btn-link">#1</a>
+                                      <a href="#" class="btn btn-tool">
+                                          <i class="fas fa-pen"></i>
+                                      </a>
+                                  </div>
+                              </div>                                  
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <i class="far fa-clock"></i> &nbsp;
+                                    22/03/16 14:00-16:00
+                                  </div>
+                                  <div class="col">
+                                    <span class="right badge badge-default">2hrs</span>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col">
+                                    <i class="far fa-user"></i> &nbsp;
+                                    <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                  </div>                                 
+                                </div>                                 
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-address-book"></i> &nbsp;
+                                    <span>$20/$40</span>
+                                  </div>
+                                </div>                             
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-flag"></i> &nbsp;
+                                    <span>No 123 Abc Str.</span>
+                                  </div>
+                                </div>                                
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-sticky-note"></i> &nbsp;
+                                    <span>some notesa asdfasdf asdfa...</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="card card-primary card-outline">
+                              <div class="card-header">
+                                  <h5 class="card-title">AGL@Airport</h5>
+                                  <div class="card-tools">
+                                      <a href="#" class="btn btn-tool btn-link">#1</a>
+                                      <a href="#" class="btn btn-tool">
+                                          <i class="fas fa-pen"></i>
+                                      </a>
+                                  </div>
+                              </div>                                  
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-10">
+                                    <i class="far fa-clock"></i> &nbsp;
+                                    22/03/16 14:00-16:00
+                                  </div>
+                                  <div class="col">
+                                    <span class="right badge badge-default">2hrs</span>
+                                  </div>
+                                </div>  
+                                <div class="row">
+                                  <div class="col">
+                                    <i class="far fa-user"></i> &nbsp;
+                                    <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                  </div>                                 
+                                </div>                                 
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-address-book"></i> &nbsp;
+                                    <span>$20/$40</span>
+                                  </div>
+                                </div>                             
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-flag"></i> &nbsp;
+                                    <span>No 123 Abc Str.</span>
+                                  </div>
+                                </div>                                
+                                <div class="row">                                      
+                                  <div class="col">
+                                    <i class="far fa-sticky-note"></i> &nbsp;
+                                    <span>some notesa asdfasdf asdfa...</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
                         </div>
-                        <div class="card card-row card-success">
+                    </div>
+                    <!-- /.card -->
+                    <div class="card card-row card-primary">
+                      <div class="card-header">
+                          <h3 class="card-title">
+                              John Doe
+                          </h3>
+                          <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                            </button>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="card card-success card-outline">
                             <div class="card-header">
-                                <h3 class="card-title">
-                                    Done
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="card card-primary card-outline">
-                                    <div class="card-header">
-                                        <h5 class="card-title">Create repo</h5>
-                                        <div class="card-tools">
-                                            <a href="#" class="btn btn-tool btn-link">#1</a>
-                                            <a href="#" class="btn btn-tool">
-                                                <i class="fas fa-pen"></i>
-                                            </a>
-                                        </div>
-                                    </div>
+                                <h5 class="card-title">
+                                  <strong>AGL@Airport</strong></h5>
+                                <div class="card-tools">
+                                  <span class="right badge badge-success">done</span>
+                                    <a href="#" class="btn btn-tool">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
                                 </div>
+                            </div>                                  
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <i class="far fa-clock"></i> &nbsp;
+                                  22/03/16 14:00-16:00
+                                </div>
+                                <div class="col">
+                                  <span class="right badge badge-default">2hrs</span>
+                                </div>
+                              </div>  
+                              <div class="row">
+                                <div class="col">
+                                  <i class="far fa-user"></i> &nbsp;
+                                  <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                </div>                                 
+                              </div>                                 
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-address-book"></i> &nbsp;
+                                  <span>$20/$40</span>
+                                </div>
+                              </div>                             
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-flag"></i> &nbsp;
+                                  <span>No 123 Abc Str.</span>
+                                </div>
+                              </div>                                
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-sticky-note"></i> &nbsp;
+                                  <span>some notesa asdfasdf asdfa...</span>
+                                </div>
+                              </div>
                             </div>
+                          </div>
+                          <div class="card card-danger card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                  <div class="card-tools">
+                                  <span class="right badge badge-danger">Today</span>
+                                    <a href="#" class="btn btn-tool">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                            </div>                                  
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <i class="far fa-clock"></i> &nbsp;
+                                  22/03/16 14:00-16:00
+                                </div>
+                                <div class="col">
+                                  <span class="right badge badge-default">2hrs</span>
+                                </div>
+                              </div>  
+                              <div class="row">
+                                <div class="col">
+                                  <i class="far fa-user"></i> &nbsp;
+                                  <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                </div>                                 
+                              </div>                                 
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-address-book"></i> &nbsp;
+                                  <span>$20/$40</span>
+                                </div>
+                              </div>                             
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-flag"></i> &nbsp;
+                                  <span>No 123 Abc Str.</span>
+                                </div>
+                              </div>                                
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-sticky-note"></i> &nbsp;
+                                  <span>some notesa asdfasdf asdfa...</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="card card-danger card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                <div class="card-tools">
+                                  <span class="right badge badge-danger">Today</span>
+                                    <a href="#" class="btn btn-tool">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                            </div>                                  
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <i class="far fa-clock"></i> &nbsp;
+                                  22/03/16 14:00-16:00
+                                </div>
+                                <div class="col">
+                                  <span class="right badge badge-default">2hrs</span>
+                                </div>
+                              </div>  
+                              <div class="row">
+                                <div class="col">
+                                  <i class="far fa-user"></i> &nbsp;
+                                  <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                </div>                                 
+                              </div>                                 
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-address-book"></i> &nbsp;
+                                  <span>$20/$40</span>
+                                </div>
+                              </div>                             
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-flag"></i> &nbsp;
+                                  <span>No 123 Abc Str.</span>
+                                </div>
+                              </div>                                
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-sticky-note"></i> &nbsp;
+                                  <span>some notesa asdfasdf asdfa...</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title">AGL@Airport</h5>
+                                <div class="card-tools">
+                                    <a href="#" class="btn btn-tool btn-link">#1</a>
+                                    <a href="#" class="btn btn-tool">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                            </div>                                  
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <i class="far fa-clock"></i> &nbsp;
+                                  22/03/16 14:00-16:00
+                                </div>
+                                <div class="col">
+                                  <span class="right badge badge-default">2hrs</span>
+                                </div>
+                              </div>  
+                              <div class="row">
+                                <div class="col">
+                                  <i class="far fa-user"></i> &nbsp;
+                                  <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                </div>                                 
+                              </div>                                 
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-address-book"></i> &nbsp;
+                                  <span>$20/$40</span>
+                                </div>
+                              </div>                             
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-flag"></i> &nbsp;
+                                  <span>No 123 Abc Str.</span>
+                                </div>
+                              </div>                                
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-sticky-note"></i> &nbsp;
+                                  <span>some notesa asdfasdf asdfa...</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title">AGL@Airport</h5>
+                                <div class="card-tools">
+                                    <a href="#" class="btn btn-tool btn-link">#1</a>
+                                    <a href="#" class="btn btn-tool">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                            </div>                                  
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <i class="far fa-clock"></i> &nbsp;
+                                  22/03/16 14:00-16:00
+                                </div>
+                                <div class="col">
+                                  <span class="right badge badge-default">2hrs</span>
+                                </div>
+                              </div>  
+                              <div class="row">
+                                <div class="col">
+                                  <i class="far fa-user"></i> &nbsp;
+                                  <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                </div>                                 
+                              </div>                                 
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-address-book"></i> &nbsp;
+                                  <span>$20/$40</span>
+                                </div>
+                              </div>                             
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-flag"></i> &nbsp;
+                                  <span>No 123 Abc Str.</span>
+                                </div>
+                              </div>                                
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-sticky-note"></i> &nbsp;
+                                  <span>some notesa asdfasdf asdfa...</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="card card-primary card-outline">
+                            <div class="card-header">
+                                <h5 class="card-title">AGL@Airport</h5>
+                                <div class="card-tools">
+                                    <a href="#" class="btn btn-tool btn-link">#1</a>
+                                    <a href="#" class="btn btn-tool">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
+                                </div>
+                            </div>                                  
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-10">
+                                  <i class="far fa-clock"></i> &nbsp;
+                                  22/03/16 14:00-16:00
+                                </div>
+                                <div class="col">
+                                  <span class="right badge badge-default">2hrs</span>
+                                </div>
+                              </div>  
+                              <div class="row">
+                                <div class="col">
+                                  <i class="far fa-user"></i> &nbsp;
+                                  <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                                </div>                                 
+                              </div>                                 
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-address-book"></i> &nbsp;
+                                  <span>$20/$40</span>
+                                </div>
+                              </div>                             
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-flag"></i> &nbsp;
+                                  <span>No 123 Abc Str.</span>
+                                </div>
+                              </div>                                
+                              <div class="row">                                      
+                                <div class="col">
+                                  <i class="far fa-sticky-note"></i> &nbsp;
+                                  <span>some notesa asdfasdf asdfa...</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <!-- /.card -->
+                  <div class="card card-row card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            John Doe
+                        </h3>
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-tool" data-card-widget="remove">
+                          <i class="fas fa-times"></i>
+                          </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card card-success card-outline">
+                          <div class="card-header">
+                              <h5 class="card-title">
+                                <strong>AGL@Airport</strong></h5>
+                              <div class="card-tools">
+                                <span class="right badge badge-success">done</span>
+                                  <a href="#" class="btn btn-tool">
+                                      <i class="fas fa-pen"></i>
+                                  </a>
+                              </div>
+                          </div>                                  
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <i class="far fa-clock"></i> &nbsp;
+                                22/03/16 14:00-16:00
+                              </div>
+                              <div class="col">
+                                <span class="right badge badge-default">2hrs</span>
+                              </div>
+                            </div>  
+                            <div class="row">
+                              <div class="col">
+                                <i class="far fa-user"></i> &nbsp;
+                                <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                              </div>                                 
+                            </div>                                 
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-address-book"></i> &nbsp;
+                                <span>$20/$40</span>
+                              </div>
+                            </div>                             
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-flag"></i> &nbsp;
+                                <span>No 123 Abc Str.</span>
+                              </div>
+                            </div>                                
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-sticky-note"></i> &nbsp;
+                                <span>some notesa asdfasdf asdfa...</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card card-danger card-outline">
+                          <div class="card-header">
+                              <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                                <div class="card-tools">
+                                <span class="right badge badge-danger">Today</span>
+                                  <a href="#" class="btn btn-tool">
+                                      <i class="fas fa-pen"></i>
+                                  </a>
+                              </div>
+                          </div>                                  
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <i class="far fa-clock"></i> &nbsp;
+                                22/03/16 14:00-16:00
+                              </div>
+                              <div class="col">
+                                <span class="right badge badge-default">2hrs</span>
+                              </div>
+                            </div>  
+                            <div class="row">
+                              <div class="col">
+                                <i class="far fa-user"></i> &nbsp;
+                                <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                              </div>                                 
+                            </div>                                 
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-address-book"></i> &nbsp;
+                                <span>$20/$40</span>
+                              </div>
+                            </div>                             
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-flag"></i> &nbsp;
+                                <span>No 123 Abc Str.</span>
+                              </div>
+                            </div>                                
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-sticky-note"></i> &nbsp;
+                                <span>some notesa asdfasdf asdfa...</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="card card-danger card-outline">
+                          <div class="card-header">
+                              <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                              <div class="card-tools">
+                                <span class="right badge badge-danger">Today</span>
+                                  <a href="#" class="btn btn-tool">
+                                      <i class="fas fa-pen"></i>
+                                  </a>
+                              </div>
+                          </div>                                  
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <i class="far fa-clock"></i> &nbsp;
+                                22/03/16 14:00-16:00
+                              </div>
+                              <div class="col">
+                                <span class="right badge badge-default">2hrs</span>
+                              </div>
+                            </div>  
+                            <div class="row">
+                              <div class="col">
+                                <i class="far fa-user"></i> &nbsp;
+                                <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                              </div>                                 
+                            </div>                                 
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-address-book"></i> &nbsp;
+                                <span>$20/$40</span>
+                              </div>
+                            </div>                             
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-flag"></i> &nbsp;
+                                <span>No 123 Abc Str.</span>
+                              </div>
+                            </div>                                
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-sticky-note"></i> &nbsp;
+                                <span>some notesa asdfasdf asdfa...</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card card-primary card-outline">
+                          <div class="card-header">
+                              <h5 class="card-title">AGL@Airport</h5>
+                              <div class="card-tools">
+                                  <a href="#" class="btn btn-tool btn-link">#1</a>
+                                  <a href="#" class="btn btn-tool">
+                                      <i class="fas fa-pen"></i>
+                                  </a>
+                              </div>
+                          </div>                                  
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <i class="far fa-clock"></i> &nbsp;
+                                22/03/16 14:00-16:00
+                              </div>
+                              <div class="col">
+                                <span class="right badge badge-default">2hrs</span>
+                              </div>
+                            </div>  
+                            <div class="row">
+                              <div class="col">
+                                <i class="far fa-user"></i> &nbsp;
+                                <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                              </div>                                 
+                            </div>                                 
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-address-book"></i> &nbsp;
+                                <span>$20/$40</span>
+                              </div>
+                            </div>                             
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-flag"></i> &nbsp;
+                                <span>No 123 Abc Str.</span>
+                              </div>
+                            </div>                                
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-sticky-note"></i> &nbsp;
+                                <span>some notesa asdfasdf asdfa...</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card card-primary card-outline">
+                          <div class="card-header">
+                              <h5 class="card-title">AGL@Airport</h5>
+                              <div class="card-tools">
+                                  <a href="#" class="btn btn-tool btn-link">#1</a>
+                                  <a href="#" class="btn btn-tool">
+                                      <i class="fas fa-pen"></i>
+                                  </a>
+                              </div>
+                          </div>                                  
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <i class="far fa-clock"></i> &nbsp;
+                                22/03/16 14:00-16:00
+                              </div>
+                              <div class="col">
+                                <span class="right badge badge-default">2hrs</span>
+                              </div>
+                            </div>  
+                            <div class="row">
+                              <div class="col">
+                                <i class="far fa-user"></i> &nbsp;
+                                <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                              </div>                                 
+                            </div>                                 
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-address-book"></i> &nbsp;
+                                <span>$20/$40</span>
+                              </div>
+                            </div>                             
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-flag"></i> &nbsp;
+                                <span>No 123 Abc Str.</span>
+                              </div>
+                            </div>                                
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-sticky-note"></i> &nbsp;
+                                <span>some notesa asdfasdf asdfa...</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card card-primary card-outline">
+                          <div class="card-header">
+                              <h5 class="card-title">AGL@Airport</h5>
+                              <div class="card-tools">
+                                  <a href="#" class="btn btn-tool btn-link">#1</a>
+                                  <a href="#" class="btn btn-tool">
+                                      <i class="fas fa-pen"></i>
+                                  </a>
+                              </div>
+                          </div>                                  
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <i class="far fa-clock"></i> &nbsp;
+                                22/03/16 14:00-16:00
+                              </div>
+                              <div class="col">
+                                <span class="right badge badge-default">2hrs</span>
+                              </div>
+                            </div>  
+                            <div class="row">
+                              <div class="col">
+                                <i class="far fa-user"></i> &nbsp;
+                                <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                              </div>                                 
+                            </div>                                 
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-address-book"></i> &nbsp;
+                                <span>$20/$40</span>
+                              </div>
+                            </div>                             
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-flag"></i> &nbsp;
+                                <span>No 123 Abc Str.</span>
+                              </div>
+                            </div>                                
+                            <div class="row">                                      
+                              <div class="col">
+                                <i class="far fa-sticky-note"></i> &nbsp;
+                                <span>some notesa asdfasdf asdfa...</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         
                     </div>
+                </div>
+                <!-- /.card -->
+                <div class="card card-row card-primary">
+                  <div class="card-header">
+                      <h3 class="card-title">
+                          John Doe
+                      </h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="card card-success card-outline">
+                        <div class="card-header">
+                            <h5 class="card-title">
+                              <strong>AGL@Airport</strong></h5>
+                            <div class="card-tools">
+                              <span class="right badge badge-success">done</span>
+                                <a href="#" class="btn btn-tool">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            </div>
+                        </div>                                  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <i class="far fa-clock"></i> &nbsp;
+                              22/03/16 14:00-16:00
+                            </div>
+                            <div class="col">
+                              <span class="right badge badge-default">2hrs</span>
+                            </div>
+                          </div>  
+                          <div class="row">
+                            <div class="col">
+                              <i class="far fa-user"></i> &nbsp;
+                              <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                            </div>                                 
+                          </div>                                 
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-address-book"></i> &nbsp;
+                              <span>$20/$40</span>
+                            </div>
+                          </div>                             
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-flag"></i> &nbsp;
+                              <span>No 123 Abc Str.</span>
+                            </div>
+                          </div>                                
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-sticky-note"></i> &nbsp;
+                              <span>some notesa asdfasdf asdfa...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card card-danger card-outline">
+                        <div class="card-header">
+                            <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                              <div class="card-tools">
+                              <span class="right badge badge-danger">Today</span>
+                                <a href="#" class="btn btn-tool">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            </div>
+                        </div>                                  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <i class="far fa-clock"></i> &nbsp;
+                              22/03/16 14:00-16:00
+                            </div>
+                            <div class="col">
+                              <span class="right badge badge-default">2hrs</span>
+                            </div>
+                          </div>  
+                          <div class="row">
+                            <div class="col">
+                              <i class="far fa-user"></i> &nbsp;
+                              <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                            </div>                                 
+                          </div>                                 
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-address-book"></i> &nbsp;
+                              <span>$20/$40</span>
+                            </div>
+                          </div>                             
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-flag"></i> &nbsp;
+                              <span>No 123 Abc Str.</span>
+                            </div>
+                          </div>                                
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-sticky-note"></i> &nbsp;
+                              <span>some notesa asdfasdf asdfa...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="card card-danger card-outline">
+                        <div class="card-header">
+                            <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                            <div class="card-tools">
+                              <span class="right badge badge-danger">Today</span>
+                                <a href="#" class="btn btn-tool">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            </div>
+                        </div>                                  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <i class="far fa-clock"></i> &nbsp;
+                              22/03/16 14:00-16:00
+                            </div>
+                            <div class="col">
+                              <span class="right badge badge-default">2hrs</span>
+                            </div>
+                          </div>  
+                          <div class="row">
+                            <div class="col">
+                              <i class="far fa-user"></i> &nbsp;
+                              <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                            </div>                                 
+                          </div>                                 
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-address-book"></i> &nbsp;
+                              <span>$20/$40</span>
+                            </div>
+                          </div>                             
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-flag"></i> &nbsp;
+                              <span>No 123 Abc Str.</span>
+                            </div>
+                          </div>                                
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-sticky-note"></i> &nbsp;
+                              <span>some notesa asdfasdf asdfa...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h5 class="card-title">AGL@Airport</h5>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-link">#1</a>
+                                <a href="#" class="btn btn-tool">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            </div>
+                        </div>                                  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <i class="far fa-clock"></i> &nbsp;
+                              22/03/16 14:00-16:00
+                            </div>
+                            <div class="col">
+                              <span class="right badge badge-default">2hrs</span>
+                            </div>
+                          </div>  
+                          <div class="row">
+                            <div class="col">
+                              <i class="far fa-user"></i> &nbsp;
+                              <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                            </div>                                 
+                          </div>                                 
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-address-book"></i> &nbsp;
+                              <span>$20/$40</span>
+                            </div>
+                          </div>                             
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-flag"></i> &nbsp;
+                              <span>No 123 Abc Str.</span>
+                            </div>
+                          </div>                                
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-sticky-note"></i> &nbsp;
+                              <span>some notesa asdfasdf asdfa...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h5 class="card-title">AGL@Airport</h5>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-link">#1</a>
+                                <a href="#" class="btn btn-tool">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            </div>
+                        </div>                                  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <i class="far fa-clock"></i> &nbsp;
+                              22/03/16 14:00-16:00
+                            </div>
+                            <div class="col">
+                              <span class="right badge badge-default">2hrs</span>
+                            </div>
+                          </div>  
+                          <div class="row">
+                            <div class="col">
+                              <i class="far fa-user"></i> &nbsp;
+                              <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                            </div>                                 
+                          </div>                                 
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-address-book"></i> &nbsp;
+                              <span>$20/$40</span>
+                            </div>
+                          </div>                             
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-flag"></i> &nbsp;
+                              <span>No 123 Abc Str.</span>
+                            </div>
+                          </div>                                
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-sticky-note"></i> &nbsp;
+                              <span>some notesa asdfasdf asdfa...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h5 class="card-title">AGL@Airport</h5>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-link">#1</a>
+                                <a href="#" class="btn btn-tool">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            </div>
+                        </div>                                  
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-10">
+                              <i class="far fa-clock"></i> &nbsp;
+                              22/03/16 14:00-16:00
+                            </div>
+                            <div class="col">
+                              <span class="right badge badge-default">2hrs</span>
+                            </div>
+                          </div>  
+                          <div class="row">
+                            <div class="col">
+                              <i class="far fa-user"></i> &nbsp;
+                              <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                            </div>                                 
+                          </div>                                 
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-address-book"></i> &nbsp;
+                              <span>$20/$40</span>
+                            </div>
+                          </div>                             
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-flag"></i> &nbsp;
+                              <span>No 123 Abc Str.</span>
+                            </div>
+                          </div>                                
+                          <div class="row">                                      
+                            <div class="col">
+                              <i class="far fa-sticky-note"></i> &nbsp;
+                              <span>some notesa asdfasdf asdfa...</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div>
+              </div>
+              <!-- /.card -->
+              <div class="card card-row card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        John Doe
+                    </h3>
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                      <i class="fas fa-minus"></i>
+                      </button>
+                      <button type="button" class="btn btn-tool" data-card-widget="remove">
+                      <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card card-success card-outline">
+                      <div class="card-header">
+                          <h5 class="card-title">
+                            <strong>AGL@Airport</strong></h5>
+                          <div class="card-tools">
+                            <span class="right badge badge-success">done</span>
+                              <a href="#" class="btn btn-tool">
+                                  <i class="fas fa-pen"></i>
+                              </a>
+                          </div>
+                      </div>                                  
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <i class="far fa-clock"></i> &nbsp;
+                            22/03/16 14:00-16:00
+                          </div>
+                          <div class="col">
+                            <span class="right badge badge-default">2hrs</span>
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col">
+                            <i class="far fa-user"></i> &nbsp;
+                            <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                          </div>                                 
+                        </div>                                 
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-address-book"></i> &nbsp;
+                            <span>$20/$40</span>
+                          </div>
+                        </div>                             
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-flag"></i> &nbsp;
+                            <span>No 123 Abc Str.</span>
+                          </div>
+                        </div>                                
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-sticky-note"></i> &nbsp;
+                            <span>some notesa asdfasdf asdfa...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-danger card-outline">
+                      <div class="card-header">
+                          <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                            <div class="card-tools">
+                            <span class="right badge badge-danger">Today</span>
+                              <a href="#" class="btn btn-tool">
+                                  <i class="fas fa-pen"></i>
+                              </a>
+                          </div>
+                      </div>                                  
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <i class="far fa-clock"></i> &nbsp;
+                            22/03/16 14:00-16:00
+                          </div>
+                          <div class="col">
+                            <span class="right badge badge-default">2hrs</span>
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col">
+                            <i class="far fa-user"></i> &nbsp;
+                            <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                          </div>                                 
+                        </div>                                 
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-address-book"></i> &nbsp;
+                            <span>$20/$40</span>
+                          </div>
+                        </div>                             
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-flag"></i> &nbsp;
+                            <span>No 123 Abc Str.</span>
+                          </div>
+                        </div>                                
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-sticky-note"></i> &nbsp;
+                            <span>some notesa asdfasdf asdfa...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="card card-danger card-outline">
+                      <div class="card-header">
+                          <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                          <div class="card-tools">
+                            <span class="right badge badge-danger">Today</span>
+                              <a href="#" class="btn btn-tool">
+                                  <i class="fas fa-pen"></i>
+                              </a>
+                          </div>
+                      </div>                                  
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <i class="far fa-clock"></i> &nbsp;
+                            22/03/16 14:00-16:00
+                          </div>
+                          <div class="col">
+                            <span class="right badge badge-default">2hrs</span>
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col">
+                            <i class="far fa-user"></i> &nbsp;
+                            <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                          </div>                                 
+                        </div>                                 
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-address-book"></i> &nbsp;
+                            <span>$20/$40</span>
+                          </div>
+                        </div>                             
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-flag"></i> &nbsp;
+                            <span>No 123 Abc Str.</span>
+                          </div>
+                        </div>                                
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-sticky-note"></i> &nbsp;
+                            <span>some notesa asdfasdf asdfa...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-primary card-outline">
+                      <div class="card-header">
+                          <h5 class="card-title">AGL@Airport</h5>
+                          <div class="card-tools">
+                              <a href="#" class="btn btn-tool btn-link">#1</a>
+                              <a href="#" class="btn btn-tool">
+                                  <i class="fas fa-pen"></i>
+                              </a>
+                          </div>
+                      </div>                                  
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <i class="far fa-clock"></i> &nbsp;
+                            22/03/16 14:00-16:00
+                          </div>
+                          <div class="col">
+                            <span class="right badge badge-default">2hrs</span>
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col">
+                            <i class="far fa-user"></i> &nbsp;
+                            <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                          </div>                                 
+                        </div>                                 
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-address-book"></i> &nbsp;
+                            <span>$20/$40</span>
+                          </div>
+                        </div>                             
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-flag"></i> &nbsp;
+                            <span>No 123 Abc Str.</span>
+                          </div>
+                        </div>                                
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-sticky-note"></i> &nbsp;
+                            <span>some notesa asdfasdf asdfa...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-primary card-outline">
+                      <div class="card-header">
+                          <h5 class="card-title">AGL@Airport</h5>
+                          <div class="card-tools">
+                              <a href="#" class="btn btn-tool btn-link">#1</a>
+                              <a href="#" class="btn btn-tool">
+                                  <i class="fas fa-pen"></i>
+                              </a>
+                          </div>
+                      </div>                                  
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <i class="far fa-clock"></i> &nbsp;
+                            22/03/16 14:00-16:00
+                          </div>
+                          <div class="col">
+                            <span class="right badge badge-default">2hrs</span>
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col">
+                            <i class="far fa-user"></i> &nbsp;
+                            <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                          </div>                                 
+                        </div>                                 
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-address-book"></i> &nbsp;
+                            <span>$20/$40</span>
+                          </div>
+                        </div>                             
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-flag"></i> &nbsp;
+                            <span>No 123 Abc Str.</span>
+                          </div>
+                        </div>                                
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-sticky-note"></i> &nbsp;
+                            <span>some notesa asdfasdf asdfa...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card card-primary card-outline">
+                      <div class="card-header">
+                          <h5 class="card-title">AGL@Airport</h5>
+                          <div class="card-tools">
+                              <a href="#" class="btn btn-tool btn-link">#1</a>
+                              <a href="#" class="btn btn-tool">
+                                  <i class="fas fa-pen"></i>
+                              </a>
+                          </div>
+                      </div>                                  
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <i class="far fa-clock"></i> &nbsp;
+                            22/03/16 14:00-16:00
+                          </div>
+                          <div class="col">
+                            <span class="right badge badge-default">2hrs</span>
+                          </div>
+                        </div>  
+                        <div class="row">
+                          <div class="col">
+                            <i class="far fa-user"></i> &nbsp;
+                            <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                          </div>                                 
+                        </div>                                 
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-address-book"></i> &nbsp;
+                            <span>$20/$40</span>
+                          </div>
+                        </div>                             
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-flag"></i> &nbsp;
+                            <span>No 123 Abc Str.</span>
+                          </div>
+                        </div>                                
+                        <div class="row">                                      
+                          <div class="col">
+                            <i class="far fa-sticky-note"></i> &nbsp;
+                            <span>some notesa asdfasdf asdfa...</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- /.card -->
+            <div class="card card-row card-primary">
+              <div class="card-header">
+                  <h3 class="card-title">
+                      John Doe
+                  </h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <div class="card card-success card-outline">
+                    <div class="card-header">
+                        <h5 class="card-title">
+                          <strong>AGL@Airport</strong></h5>
+                        <div class="card-tools">
+                          <span class="right badge badge-success">done</span>
+                            <a href="#" class="btn btn-tool">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        </div>
+                    </div>                                  
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <i class="far fa-clock"></i> &nbsp;
+                          22/03/16 14:00-16:00
+                        </div>
+                        <div class="col">
+                          <span class="right badge badge-default">2hrs</span>
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="col">
+                          <i class="far fa-user"></i> &nbsp;
+                          <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                        </div>                                 
+                      </div>                                 
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-address-book"></i> &nbsp;
+                          <span>$20/$40</span>
+                        </div>
+                      </div>                             
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-flag"></i> &nbsp;
+                          <span>No 123 Abc Str.</span>
+                        </div>
+                      </div>                                
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-sticky-note"></i> &nbsp;
+                          <span>some notesa asdfasdf asdfa...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-danger card-outline">
+                    <div class="card-header">
+                        <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                          <div class="card-tools">
+                          <span class="right badge badge-danger">Today</span>
+                            <a href="#" class="btn btn-tool">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        </div>
+                    </div>                                  
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <i class="far fa-clock"></i> &nbsp;
+                          22/03/16 14:00-16:00
+                        </div>
+                        <div class="col">
+                          <span class="right badge badge-default">2hrs</span>
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="col">
+                          <i class="far fa-user"></i> &nbsp;
+                          <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                        </div>                                 
+                      </div>                                 
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-address-book"></i> &nbsp;
+                          <span>$20/$40</span>
+                        </div>
+                      </div>                             
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-flag"></i> &nbsp;
+                          <span>No 123 Abc Str.</span>
+                        </div>
+                      </div>                                
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-sticky-note"></i> &nbsp;
+                          <span>some notesa asdfasdf asdfa...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card card-danger card-outline">
+                    <div class="card-header">
+                        <h5 class="card-title"><strong>AGL@Airport</strong></h5>
+                        <div class="card-tools">
+                          <span class="right badge badge-danger">Today</span>
+                            <a href="#" class="btn btn-tool">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        </div>
+                    </div>                                  
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <i class="far fa-clock"></i> &nbsp;
+                          22/03/16 14:00-16:00
+                        </div>
+                        <div class="col">
+                          <span class="right badge badge-default">2hrs</span>
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="col">
+                          <i class="far fa-user"></i> &nbsp;
+                          <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                        </div>                                 
+                      </div>                                 
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-address-book"></i> &nbsp;
+                          <span>$20/$40</span>
+                        </div>
+                      </div>                             
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-flag"></i> &nbsp;
+                          <span>No 123 Abc Str.</span>
+                        </div>
+                      </div>                                
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-sticky-note"></i> &nbsp;
+                          <span>some notesa asdfasdf asdfa...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h5 class="card-title">AGL@Airport</h5>
+                        <div class="card-tools">
+                            <a href="#" class="btn btn-tool btn-link">#1</a>
+                            <a href="#" class="btn btn-tool">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        </div>
+                    </div>                                  
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <i class="far fa-clock"></i> &nbsp;
+                          22/03/16 14:00-16:00
+                        </div>
+                        <div class="col">
+                          <span class="right badge badge-default">2hrs</span>
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="col">
+                          <i class="far fa-user"></i> &nbsp;
+                          <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                        </div>                                 
+                      </div>                                 
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-address-book"></i> &nbsp;
+                          <span>$20/$40</span>
+                        </div>
+                      </div>                             
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-flag"></i> &nbsp;
+                          <span>No 123 Abc Str.</span>
+                        </div>
+                      </div>                                
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-sticky-note"></i> &nbsp;
+                          <span>some notesa asdfasdf asdfa...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h5 class="card-title">AGL@Airport</h5>
+                        <div class="card-tools">
+                            <a href="#" class="btn btn-tool btn-link">#1</a>
+                            <a href="#" class="btn btn-tool">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        </div>
+                    </div>                                  
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <i class="far fa-clock"></i> &nbsp;
+                          22/03/16 14:00-16:00
+                        </div>
+                        <div class="col">
+                          <span class="right badge badge-default">2hrs</span>
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="col">
+                          <i class="far fa-user"></i> &nbsp;
+                          <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                        </div>                                 
+                      </div>                                 
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-address-book"></i> &nbsp;
+                          <span>$20/$40</span>
+                        </div>
+                      </div>                             
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-flag"></i> &nbsp;
+                          <span>No 123 Abc Str.</span>
+                        </div>
+                      </div>                                
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-sticky-note"></i> &nbsp;
+                          <span>some notesa asdfasdf asdfa...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h5 class="card-title">AGL@Airport</h5>
+                        <div class="card-tools">
+                            <a href="#" class="btn btn-tool btn-link">#1</a>
+                            <a href="#" class="btn btn-tool">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                        </div>
+                    </div>                                  
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-10">
+                          <i class="far fa-clock"></i> &nbsp;
+                          22/03/16 14:00-16:00
+                        </div>
+                        <div class="col">
+                          <span class="right badge badge-default">2hrs</span>
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="col">
+                          <i class="far fa-user"></i> &nbsp;
+                          <span><a href="subcontractor_detail.html?id=12334">John Doe</a>, <a href="subcontractor_detail.html?id=12334">Amy White</a></span>
+                        </div>                                 
+                      </div>                                 
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-address-book"></i> &nbsp;
+                          <span>$20/$40</span>
+                        </div>
+                      </div>                             
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-flag"></i> &nbsp;
+                          <span>No 123 Abc Str.</span>
+                        </div>
+                      </div>                                
+                      <div class="row">                                      
+                        <div class="col">
+                          <i class="far fa-sticky-note"></i> &nbsp;
+                          <span>some notesa asdfasdf asdfa...</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+              </div>
+          </div>
+          <!-- /.card -->
+                    </div>
                 </section>
             </div>
-            <footer class="main-footer">
+            <!--<footer class="main-footer">
                 <div class="float-right d-none d-sm-block"><b>Version</b> 1.0.0</div>
-                <strong>Copyright &copy; 2014-2021 Twinoz All rights reserved.</strong>
-            </footer>
+                <strong>Copyright &copy; 2014-2022 Twinoz All rights reserved.</strong>
+            </footer>-->
 
             <aside class="control-sidebar control-sidebar-dark"></aside>
         </div>
@@ -533,9 +2596,20 @@
 
         <script src="plugins/filterizr/jquery.filterizr.min.js"></script>
 
+        <script src="plugins/moment/moment.min.js"></script>
+
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+
 
         <script>
-            $(function () {});
+            $(function () {
+              $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+              }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+              });
+
+            });
         </script>
     </body>
 </html>
