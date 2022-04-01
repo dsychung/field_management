@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Twinoz Pty Ltd | Tasks</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+        <!-- SweetAlert pop up msg -->
+        <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" />
+        <!-- Toast pop up msg -->
+        <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css" />
+        <!-- datetime range picker-->
+        <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css" />
+    </head>
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="../../index.html" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="../../task_add.html" class="nav-link">Add Task</a>
+                    </li>
+                </ul>
+
+                <!-- Right navbar links -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Notifications Dropdown Menu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#">
+                            <i class="far fa-bell"></i>
+                            <span class="badge badge-warning navbar-badge">15</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                            <span class="dropdown-item dropdown-header">15 Notifications</span>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                                <span class="float-right text-muted text-sm">3 mins</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-users mr-2"></i> 8 friend requests
+                                <span class="float-right text-muted text-sm">12 hours</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-file mr-2"></i> 3 new reports
+                                <span class="float-right text-muted text-sm">2 days</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                            <i class="fas fa-th-large"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="../../index.html" class="brand-link">
+                    <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;" />
+                    <span class="brand-text font-weight-light">Twinoz Pty Ltd</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+                            <li class="nav-item">
+                                <a href="../../index.html" class="nav-link">
+                                    <i class="nav-icon fas fa-tv"></i>
+                                    <p>
+                                        Dashboard
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="task.html" class="nav-link active">
+                                    <i class="nav-icon fas fa-table"></i>
+                                    <p>
+                                        Task List
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../task_add.html" class="nav-link">
+                                    <i class="nav-icon fas fa-plus"></i>
+                                    <p>
+                                        Add Task
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="subcontractor.html" class="nav-link">
+                                    <i class="nav-icon fas fa-user-tie"></i>
+                                    <p>
+                                        Subcontractors
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="client.html" class="nav-link">
+                                    <i class="nav-icon fas fa-building"></i>
+                                    <p>
+                                        Clients
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="invoice.html" class="nav-link">
+                                    <i class="nav-icon fas fa-file"></i>
+                                    <p>
+                                        Invoices
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="user.html" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Users
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="setting.html" class="nav-link">
+                                    <i class="nav-icon fas fa-bars"></i>
+                                    <p>
+                                        Setting
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="float-left">Tasks</h1>
+                                <a href="../../task_add.html" role="button" class="btn btn-default btn-sm ml-2 mt-1">Add New</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item active">Tasks</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"></h3>
+
+                                        <div class="card-tools">
+                                            <div class="input-group float-right">
+                                                <!--clients select-->
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-building"></i></span>
+                                                </div>
+                                                <select id="clientList">
+                                                    <option>ALG</option>
+                                                    <option>Airport</option>
+                                                    <option>Client3</option>
+                                                    <option>Client4</option>
+                                                    <option>ALG</option>
+                                                    <option>Airport</option>
+                                                    <option>Client3</option>
+                                                    <option>Client4</option>
+                                                </select>
+
+                                                <!--subcontractor select-->
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-user"></i></span>
+                                                </div>
+                                                <select id="subcontractorList">
+                                                    <option>All</option>
+                                                    <option>John Doe</option>
+                                                    <option>Mary Jane</option>
+                                                    <option>Harley Quin</option>
+                                                    <option>John Doe</option>
+                                                    <option>Mary Jane</option>
+                                                    <option>Harley Quin</option>
+                                                </select>
+
+                                                <!--daterangepicker-->
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                                </div>
+                                                <input type="text" class="pt-1 pb-0 pl-2" name="daterange" value="01/01/2018 - 01/15/2018" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body table-responsive p-0">
+                                        <table class="table table-hover text-nowrap table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Client Address</th>
+                                                    <th>Date</th>
+                                                    <th>Subcontractor</th>
+                                                    <th>Pay Individual</th>
+                                                    <th>Total Pay</th>
+                                                    <th>Short Note</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-view-task">View</button>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-edit-task">Edit</button>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a role="button" href="subcontractor_detail.html?id=183" class="btn btn-default">View</a>
+                                                            <a role="button" href="subcontractor_edit.html" class="btn btn-default">Edit</a>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a role="button" href="subcontractor_detail.html?id=183" class="btn btn-default">View</a>
+                                                            <a role="button" href="subcontractor_edit.html" class="btn btn-default">Edit</a>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a role="button" href="subcontractor_detail.html?id=183" class="btn btn-default">View</a>
+                                                            <a role="button" href="subcontractor_edit.html" class="btn btn-default">Edit</a>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a role="button" href="subcontractor_detail.html?id=183" class="btn btn-default">View</a>
+                                                            <a role="button" href="subcontractor_edit.html" class="btn btn-default">Edit</a>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a role="button" href="subcontractor_detail.html?id=183" class="btn btn-default">View</a>
+                                                            <a role="button" href="subcontractor_edit.html" class="btn btn-default">Edit</a>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>183</td>
+                                                    <td>AGL @ Airport</td>
+                                                    <td>22/03/16 14:00-16:00</td>
+                                                    <td>John Doe, Mary Jane</td>
+                                                    <td>$20</td>
+                                                    <td>$40</td>
+                                                    <td>Has a car</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a role="button" href="subcontractor_detail.html?id=183" class="btn btn-default">View</a>
+                                                            <a role="button" href="subcontractor_edit.html" class="btn btn-default">Edit</a>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#model-delete-confirm">Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div class="float-right d-none d-sm-block"><b>Version</b> 1.0.0</div>
+                <strong>Copyright &copy; 2022 Twinoz Pty Ltd.</strong> All rights reserved.
+            </footer>
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <div class="modal fade primary" id="model-view-task">
+            <form>
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Task ID: 12130210</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div class="card card-success">
+                                    <div class="card-header">
+                                        <h5 class="card-title">AGL @ Airport</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <b>Status</b>
+                                        <div class="float-right">Completed</div>
+                                        <ul class="list-group list-group-unbordered mb-3">
+                                            <li class="list-group-item">
+                                                <b>Date</b>
+                                                <div class="float-right">22/03/16 14:00-16:00</div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Duration</b>
+                                                <div class="float-right">2 hrs</div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Subcontractor</b>
+                                                <div class="float-right">
+                                                    <a href="dashboard.php?subcontractor=123" role="button" class="btn btn-primary mb-2">
+                                                        John Doe
+                                                    </a>
+                                                    <br />
+                                                    <a href="dashboard.php?subcontractor=123" role="button" class="btn btn-primary mb-2">
+                                                        Mary Jane
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item"><b>Pay Individual</b> <span class="float-right">$20</span></li>
+                                            <li class="list-group-item"><b>Total Pay</b> <span class="float-right">$40</span></li>
+                                            <li class="list-group-item"><b>Short Note</b> <span class="float-right">bla bla bla</span></li>
+                                            <li class="list-group-item"><b>Note</b> <span class="float-right">bla bla bla</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal fade" id="model-edit-task">
+            <form>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Edit Task</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Client Address*</label>
+                                <select class="form-control select2 select2-hidden-accessible" name="clientAddress" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option selected="selected"></option>
+                                    <option data-select2-id="111">AGL @ abc str</option>
+                                    <option data-select2-id="222">AGL @ abc str2</option>
+                                    <option data-select2-id="333">AGL @ abc str3</option>
+                                    <option data-select2-id="444">Airport @ Departure</option>
+                                    <option data-select2-id="555">Airport @ Arrival</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Task Total (Numeric number only)</label>
+                                <input type="text" class="form-control" name="taskTotal" value="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Pay Total (Numeric number only)</label>
+                                <input type="text" class="form-control" name="payTotal" value="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Subcontractor(s)</label>
+                                <select id="onDutySubcontractor" multiple="" class="form-control" style="min-height: 200px;">
+                                    <option>John Doe</option>
+                                    <option>Mary Mother</option>
+                                    <option>Holy Father</option>
+                                    <option>Peppa Pig</option>
+                                    <option>Hello Doggie</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="text" class="form-control" name="startDate" value="" />
+                            </div>
+
+                            <div class="row bg-secondary pt-2">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Repeat</label>
+                                        <select class="form-control">
+                                            <option selected="selected" data-select-repeat-id="0">No Repeat</option>
+                                            <option data-select-repeat-id="1">1</option>
+                                            <option data-select-repeat-id="2">2</option>
+                                            <option data-select-repeat-id="3">3</option>
+                                            <option data-select-repeat-id="4">4</option>
+                                            <option data-select-repeat-id="5">5</option>
+                                            <option data-select-repeat-id="6">6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Repeat Period</label>
+                                        <select class="form-control">
+                                            <option selected="selected" data-select-period-id="day">Day</option>
+                                            <option data-select-period-id="week">Week</option>
+                                            <option data-select-period-id="month">Month</option>
+                                            <option data-select-period-id="year">Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="row bg-secondary">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="mr-2">Repeat Weekday</label><br />
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox1" value="mon" />
+                                            <label class="form-check-label" for="weekCheckbox1">MON</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox2" value="tue" />
+                                            <label class="form-check-label" for="weekCheckbox2">TUE</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox3" value="wed" />
+                                            <label class="form-check-label" for="weekCheckbox3">WED</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox4" value="thu" />
+                                            <label class="form-check-label" for="weekCheckbox4">THU</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox5" value="fri" />
+                                            <label class="form-check-label" for="weekCheckbox5">FRI</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox6" value="sat" />
+                                            <label class="form-check-label" for="weekCheckbox6">SAT</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="weekCheckbox7" value="sun" />
+                                            <label class="form-check-label" for="weekCheckbox7">SUN</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                            <div class="row bg-secondary pb-3">
+                                <div class="col-md-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios1" value="neverEnd" checked />
+                                        <label class="form-check-label" for="RepeatPeriodRadios1">
+                                            Never ends
+                                        </label>
+                                    </div>
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios2" value="endDate" />
+                                        <label class="form-check-label mr-2" for="RepeatPeriodRadios2">
+                                            End Date
+                                        </label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-control" type="text" placeholder="" name="endDate" />
+                                        </div>
+                                    </div>
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios3" value="repeatTimes" />
+                                        <label class="form-check-label mr-2" for="RepeatPeriodRadios3">
+                                            Repeat
+                                        </label>
+                                        <div class="form-check form-check-inline">
+                                            <select class="form-control">
+                                                <option selected="selected" data-select-repeat-times-id="0">0</option>
+                                                <option data-select-repeat-times-id="1">1</option>
+                                                <option data-select-repeat-times-id="2">2</option>
+                                                <option data-select-repeat-times-id="3">3</option>
+                                                <option data-select-repeat-times-id="4">4</option>
+                                                <option data-select-repeat-times-id="5">5</option>
+                                                <option data-select-repeat-times-id="6">6</option>
+                                            </select>
+                                            <span class="ml-2">Times</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+
+                            <div class="form-group">
+                                <label>Short Note</label>
+                                <input type="text" class="form-control" placeholder="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" placeholder="" />
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal fade" id="model-delete-confirm">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Task</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Are you sure?
+                        </p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- Sweet Alert up msg -->
+        <script type="text/javascript" src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+        <!-- Toast pop up msg -->
+        <script type="text/javascript" src="../../plugins/toastr/toastr.min.js"></script>
+        <!--datetime range picker-->
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- Main js 
+  <script src="../../dist/js/main.js"></script>-->
+
+        <script>
+            $(function () {
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                });
+
+                //datetime range picker
+                $('input[name="daterange"]').daterangepicker(
+                    {
+                        opens: "left",
+                    },
+                    function (start, end, label) {
+                        console.log("A new date selection was made: " + start.format("YYYY-MM-DD") + " to " + end.format("YYYY-MM-DD"));
+                    }
+                );
+
+                //datetime start date, single date
+                $('input[name="startDate"]').daterangepicker({
+                    startDate: "03/27/2022",
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                });
+
+                //datetime end date, single date
+                $('input[name="endDate"]').daterangepicker({
+                    startDate: "03/28/2022",
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                });
+            });
+        </script>
+    </body>
+</html>
