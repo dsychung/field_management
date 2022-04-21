@@ -190,6 +190,17 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="form-group">
+                                                <label>Client*</label>
+                                                <select class="form-control select2 select2-hidden-accessible" name="clientAddress" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                    <option selected="selected"></option>
+                                                    <option data-select2-id="111">AGL</option>
+                                                    <option data-select2-id="222">AGL2</option>
+                                                    <option data-select2-id="333">AGL3</option>
+                                                    <option data-select2-id="444">Airport1</option>
+                                                    <option data-select2-id="555">Airport2</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Client Address*</label>
                                                 <select class="form-control select2 select2-hidden-accessible" name="clientAddress" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                                     <option selected="selected"></option>
@@ -222,6 +233,17 @@
                                                 <label>Start Date</label>
                                                 <input type="text" class="form-control" name="startDate" value="" />
                                             </div>
+                                            <div class="form-group">
+                                                <label>Start Time</label>
+                                                <select class="form-control select2 select2-hidden-accessible" name="startTime" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                    <option selected="selected"></option>
+                                                    <option data-select2-id="111">00:00</option>
+                                                    <option data-select2-id="222">00:30</option>
+                                                    <option data-select2-id="333">01:00</option>
+                                                    <option data-select2-id="444">01:30</option>
+                                                    <option data-select2-id="555">02:00</option>
+                                                </select>
+                                            </div>
                                             <div class="card card-secondary">
                                                 <div class="card-header">
                                                     <h3 class="card-title">Repeat</h3>
@@ -234,7 +256,38 @@
 
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios2" value="endDate" checked />
+                                                                <label class="form-check-label mr-2" for="RepeatPeriodRadios2">
+                                                                    End Date
+                                                                </label>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-control" type="text" placeholder="" name='endDate' />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-check mt-3">
+                                                                <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios3" value="repeatTimes" />
+                                                                <label class="form-check-label mr-2" for="RepeatPeriodRadios3">
+                                                                    Repeat
+                                                                </label>
+                                                                <div class="form-check form-check-inline">
+                                                                    <select class="form-control">
+                                                                        <option selected="selected" data-select-repeat-times-id="0">0</option>
+                                                                        <option data-select-repeat-times-id="1">1</option>
+                                                                        <option data-select-repeat-times-id="2">2</option>
+                                                                        <option data-select-repeat-times-id="3">3</option>
+                                                                        <option data-select-repeat-times-id="4">4</option>
+                                                                        <option data-select-repeat-times-id="5">5</option>
+                                                                        <option data-select-repeat-times-id="6">6</option>
+                                                                    </select>
+                                                                    <span class="ml-2">Times</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.row -->
+                                                    <div class="row">
                                                             <div class="form-group">
                                                                 <label>Repeat</label>
                                                                 <select class="form-control">
@@ -247,21 +300,21 @@
                                                                     <option data-select-repeat-id="6">6</option>
                                                                 </select>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6">
+                                                    </div>
+                                                    <!-- /.row -->
+                                                    <div class="row">
                                                             <div class="form-group">
                                                                 <label>Repeat Period</label>
-                                                                <select class="form-control">
+                                                                <select id="repeat_period_select" class="form-control">
                                                                     <option selected="selected" data-select-period-id="day">Day</option>
                                                                     <option data-select-period-id="week">Week</option>
                                                                     <option data-select-period-id="month">Month</option>
                                                                     <option data-select-period-id="year">Year</option>
                                                                 </select>
                                                             </div>
-                                                        </div>
                                                     </div>
                                                     <!-- /.row -->
-                                                    <div class="row">
+                                                    <div class="row d-none rowRepeatWeekly">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <label class="mr-2">Repeat Weekday</label>
@@ -297,40 +350,11 @@
                                                         </div>
                                                     </div>
                                                     <!-- /.row -->
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios1" value="neverEnd" checked />
-                                                                <label class="form-check-label" for="RepeatPeriodRadios1">
-                                                                    Never ends
-                                                                </label>
-                                                            </div>
-                                                            <div class="form-check mt-3">
-                                                                <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios2" value="endDate" />
-                                                                <label class="form-check-label mr-2" for="RepeatPeriodRadios2">
-                                                                    End Date
-                                                                </label>
-                                                                <div class="form-check form-check-inline">
-                                                                    <input class="form-control" type="text" placeholder="" name='endDate' />
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-check mt-3">
-                                                                <input class="form-check-input" type="radio" name="RepeatPeriodRadios" id="RepeatPeriodRadios3" value="repeatTimes" />
-                                                                <label class="form-check-label mr-2" for="RepeatPeriodRadios3">
-                                                                    Repeat
-                                                                </label>
-                                                                <div class="form-check form-check-inline">
-                                                                    <select class="form-control">
-                                                                        <option selected="selected" data-select-repeat-times-id="0">0</option>
-                                                                        <option data-select-repeat-times-id="1">1</option>
-                                                                        <option data-select-repeat-times-id="2">2</option>
-                                                                        <option data-select-repeat-times-id="3">3</option>
-                                                                        <option data-select-repeat-times-id="4">4</option>
-                                                                        <option data-select-repeat-times-id="5">5</option>
-                                                                        <option data-select-repeat-times-id="6">6</option>
-                                                                    </select>
-                                                                    <span class="ml-2">Times</span>
-                                                                </div>
+                                                    <div class="row d-none rowRepeatMonthly">
+                                                        <div class="col-md-12">                                                            
+                                                            <div class="form-group">
+                                                                <label>Repeat Date of the Month</label>
+                                                                <input type="text" class="form-control" name="dateOfTheMonth" value=""  />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -478,6 +502,22 @@
                     startDate: "03/28/2022",
                     singleDatePicker: true,
                     showDropdowns: true,
+                });
+
+                //detect repeat week is selected
+                $('#repeat_period_select').change(function(){
+                    let val = $(this).val();
+                    if (val == 'Week'){
+                        $('.rowRepeatWeekly').removeClass('d-none');
+                        $('.rowRepeatMonthly').addClass('d-none');
+                    }else if (val == 'Month'){
+                        $('.rowRepeatMonthly').removeClass('d-none');
+                        $('.rowRepeatWeekly').addClass('d-none');
+                    }else{
+                        $('.rowRepeatWeekly').addClass('d-none');
+                        $('.rowRepeatMonthly').addClass('d-none');
+                    }   
+                    console.log($(this).val());
                 });
             });
         </script>

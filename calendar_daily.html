@@ -1315,12 +1315,14 @@
                 var calendarEl1 = document.getElementById('calendar1');
                 var calendar1 = new FullCalendar.Calendar(calendarEl1, {
                     initialView: 'timeGridDay',
-                    slotDuration: '00:30:00',
+                    slotDuration: '01:00:00',
                     slotMinTime: '06:00:00',
                     slotMaxTime: '22:00:00',
+                    scrollTime: '12:00:00',
+                    eventMinHeight: 150,
                     businessHours: {
                         // 這個人每天可以上班的時間 days of week. an array of zero-based day of week integers (0=Sunday)
-                        daysOfWeek: [2, 3, 4, 5, 6 ], // Monday - Thursday
+                        daysOfWeek: [ 3, 4, 5, 6, 0], // Monday - Thursday
                         startTime: '11:00', // a start time (10am in this example)
                         endTime: '21:00', // an end time (6pm in this example)
                     },
